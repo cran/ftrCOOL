@@ -1,0 +1,17 @@
+Package: ftrCOOL
+Type: Package
+Title: Feature Extraction from Biological Sequences
+Version: 0.1.0
+Author: Sare Amerifar
+Maintainer: Sare Amerifar <sare.ameri.01@gmail.com>
+Description: Extracts features from biological sequences. It contains most features which are presented in related work and also includes features which have never been introduced before. It extracts numerous features from Nucleotide and Peptide sequences. Each feature converts the input sequences to discrete numbers in order to use them as predictors in machine learning models. There are many features and information which are hidden inside a sequence. Utilizing the package, users can convert biological sequences to discrete models based on chosen properties. References: 'iLearn' 'Z. Chen et al.' (2019) <DOI:10.1093/bib/bbz041>. 'iFeature' 'Z. Chen et al.' (2018) <DOI:10.1093/bioinformatics/bty140>. <https://CRAN.R-project.org/package=rDNAse>. 'PseKRAAC' 'Y. Zuo et al.' 'PseKRAAC: a flexible web server for generating pseudo K-tuple reduced amino acids composition' (2017) <DOI:10.1093/bioinformatics/btw564>. 'iDNA6mA-PseKNC' 'P. Feng et al.' 'iDNA6mA-PseKNC: Identifying DNA N6-methyladenosine sites by incorporating nucleotide physicochemical properties into PseKNC' (2019) <DOI:10.1016/j.ygeno.2018.01.005>. 'I. Dubchak et al.' 'Prediction of protein folding class using global description of amino acid sequence' (1995) <DOI:10.1073/pnas.92.19.8700>. 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0
+Imports: stats, utils
+Suggests: testthat
+NeedsCompilation: no
+Packaged: 2020-08-26 08:27:41 UTC; sareameri
+Repository: CRAN
+Date/Publication: 2020-08-31 09:10:02 UTC
