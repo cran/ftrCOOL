@@ -2,7 +2,7 @@
 % Please edit documentation in R/ExpectedValueGAA.R
 \name{ExpectedValueGAA}
 \alias{ExpectedValueGAA}
-\title{Expected Value for Grouped Amino Acid}
+\title{Expected Value for Grouped Amino Acid (ExpectedValueGAA)}
 \usage{
 ExpectedValueGAA(seqs, k = 3, Grp = "locFus", normalized = TRUE, label = c())
 }

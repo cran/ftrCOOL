@@ -1,8 +1,15 @@
-#' Electron-ion interaction pseudopotentials (EIIP)
+#' Electron-Ion Interaction Pseudopotentials (EIIP)
 #'
 #' This function replaces each nucleotide in the input sequence with its electron-ion interaction value.
 #' The resulting sequence is represented by a feature vector whose length is equal to the length of the sequence.
 #' Please check the references for more information.
+#'
+#' @note This function is provided for sequences with the same lengths.
+#' Users can use 'txt' option in outFormat parameter for sequences with different lengths.
+#' Warning: If outFormat is set to 'mat' for sequences with different lengths, it returns an error.
+#' Also, when output format is 'txt', label information is not shown in the text file.
+#' It is noteworthy that 'txt' format is not usable for machine learning purposes if sequences have different sizes. Otherwise 'txt' format
+#' is also usable for machine learning purposes.
 #'
 #' @references Chen, Zhen, et al. "iLearn: an integrated platform and meta-learner for feature engineering, machine-learning analysis and modeling of DNA, RNA and protein sequence data." Briefings in bioinformatics 21.3 (2020): 1047-1057.
 #'
@@ -19,7 +26,7 @@
 #'
 #' @return The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
 #' matrix for sequences with the same length such that the number of columns is equal to the length of the sequences
-#' and the number of rows is equal to the number of sequences. It is usable for machine learning purposes.
+#' and the number of rows is equal to the number of sequences.
 #' If the outFormat is 'txt', the output is written to a tab-delimited file.
 #'
 #'
@@ -78,6 +85,7 @@ if(outFormat=="mat"){
   colna<-paste0("pos",1:lenSeqs[1])
   colnames(featureMatrix)<-colna
 
+
   for(n in 1:numSeqs){
     seq<-seqs[n]
     chars<-unlist(strsplit(seq,NULL))
@@ -91,6 +99,9 @@ if(outFormat=="mat"){
     featureMatrix<-cbind(featureMatrix,label)
   }
   row.names(featureMatrix)<-names(seqs)
+  ad<-system.file("extdata",package="ftrCOOL")
+  ad<-paste0(ad,"/eiip.csv")
+  write.csv(featureMatrix,file = ad)
   return(featureMatrix)
 }
   else{

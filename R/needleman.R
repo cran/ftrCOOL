@@ -1,4 +1,4 @@
-#' Needleman-Wunsch
+#' Needleman-Wunsch (needleman)
 #'
 #' This function works based on Needleman-Wunsch algorithm which computes similarity score of two sequences.
 #'

@@ -1,4 +1,4 @@
-#' Expected Value for Grouped k-mers
+#' Expected Value for Grouped K-mer Amino Acid(ExpectedValueGKmerAA)
 #'
 #' This function is introduced by this package for the first time.
 #' In this function, amino acids are first grouped into user-defined categories.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/needleman.R
 \name{needleman}
 \alias{needleman}
-\title{Needleman-Wunsch}
+\title{Needleman-Wunsch (needleman)}
 \usage{
 needleman(seq1, seq2, gap = -1, mismatch = -1, match = 1)
 }

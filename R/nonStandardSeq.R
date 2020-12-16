@@ -1,4 +1,4 @@
-#' nonStandard amino acid sequence
+#' nonStandard sequence (nonStandardSeq)
 #'
 #' This function returns sequences which contain at least one non-standard alphabet.
 #'

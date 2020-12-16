@@ -1,4 +1,4 @@
-#' CTDD(CTD Distribution)
+#' CTD Distribution (CTDD)
 #'
 #' This function computes the distribution part of \link{CTD}. It calculates fifteen values for each property.
 #' For more information, please check the references.
@@ -12,7 +12,7 @@
 #' @param label is an optional parameter. It is a vector whose length is equivalent to the number of sequences. It shows the class of
 #' each entry (i.e., sequence).
 #'
-#' @return This function returns a feature matrix. The number of rows is equal to the number of sequences and the number of columns is 15*13.
+#' @return This function returns a feature matrix. The number of rows is equal to the number of sequences and the number of columns is 15*7.
 #'
 #'
 #' @export
@@ -53,12 +53,6 @@ CTDD<-function(seqs,label=c()){
 
 
   group1<-list("hydrophobicity_PRAM900101"= c("R","K","E","D","Q","N"),
-               "hydrophobicity_ARGP820101"= c("Q","S","T","N","G","D","E"),
-               "hydrophobicity_ZIMJ680101"= c("Q","N","G","S","W","T","D","E","R","A"),
-               "hydrophobicity_PONP930101"= c("K","P","D","E","S","N","Q","T"),
-               "hydrophobicity_CASG920101"= c("K","D","E","Q","P","S","R","N","T","G"),
-               "hydrophobicity_ENGD860101"= c("R","D","K","E","N","Q","H","Y","P"),
-               "hydrophobicity_FASG890101"= c("K","E","R","S","Q","D"),
                "normwaalsvolume"= c("G","A","S","T","P","D","C"),
                "polarity"=        c("L","I","F","W","C","M","V","Y"),
                "polarizability"=  c("G","A","S","D","T"),
@@ -67,12 +61,6 @@ CTDD<-function(seqs,label=c()){
                "solventaccess"=   c("A","L","F","C","G","I","V","W"))
 
   group2<-list("hydrophobicity_PRAM900101"= c("G","A","S","T","P","H","Y"),
-               "hydrophobicity_ARGP820101"= c("R","A","H","C","K","M","V"),
-               "hydrophobicity_ZIMJ680101"= c("H","M","C","K","V"),
-               "hydrophobicity_PONP930101"= c("G","R","H","A"),
-               "hydrophobicity_CASG920101"= c("A","H","Y","M","L","V"),
-               "hydrophobicity_ENGD860101"= c("S","G","T","A","W"),
-               "hydrophobicity_FASG890101"= c("N","T","P","G"),
                "normwaalsvolume"= c("N","V","E","Q","I","L"),
                "polarity"=        c("P","A","T","G","S"),
                "polarizability"=  c("C","P","N","V","E","Q","I","L"),
@@ -81,12 +69,6 @@ CTDD<-function(seqs,label=c()){
                "solventaccess"=  c("R","K","Q","E","N","D"))
 
   group3<-list("hydrophobicity_PRAM900101"= c("C","L","V","I","M","F","W"),
-               "hydrophobicity_ARGP820101"= c("L","Y","P","F","I","W"),
-               "hydrophobicity_ZIMJ680101"= c("L","P","F","Y","I"),
-               "hydrophobicity_PONP930101"= c("Y","M","F","W","L","C","V","I"),
-               "hydrophobicity_CASG920101"= c("F","I","W","C"),
-               "hydrophobicity_ENGD860101"= c("C","V","L","I","M","F"),
-               "hydrophobicity_FASG890101"= c("A","Y","H","W","V","M","F","L","I","C"),
                "normwaalsvolume"= c("M","H","K","F","R","Y","W"),
                "polarity"=        c("H","Q","R","K","N","E","D"),
                "polarizability"=  c("K","M","H","F","R","Y","W"),
@@ -95,18 +77,17 @@ CTDD<-function(seqs,label=c()){
                "solventaccess"=   c("M","S","P","T","H","Y"))
   groups<-list("grp1"=group1,"grp2"=group2,"grp3"=group3)
 
-  properties<-c("hydrophobicity_PRAM900101", "hydrophobicity_ARGP820101", "hydrophobicity_ZIMJ680101", "hydrophobicity_PONP930101",
-                "hydrophobicity_CASG920101", "hydrophobicity_ENGD860101", "hydrophobicity_FASG890101", "normwaalsvolume",
+  properties<-c("hydrophobicity_PRAM900101", "normwaalsvolume",
                 "polarity", "polarizability", "charge", "secondarystruct", "solventaccess")
 
-  numGrp=13
+  numGrp=7
   l=list()
   featureMatrix<-matrix(0,ncol = (numGrp*15),nrow = numSeqs)
   for(n in 1:numSeqs){
 
     seq=seqs[n]
     numChar=nchar(seq)
-    matProp=matrix(0,ncol =numChar,nrow = 13)
+    matProp=matrix(0,ncol =numChar,nrow = 7)
     aa=unlist(strsplit(seq,split = ""))
 
     g1 <- lapply(group1, function(g) which(aa %in% g))

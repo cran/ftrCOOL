@@ -1,4 +1,4 @@
-#' Amphiphilic Pseudo-Amino Acid Composition(APAAC) (series)
+#' Amphiphilic Pseudo-Amino Acid Composition(series) (APAAC)
 #'
 #' This function calculates the amphiphilic pseudo amino acid composition (Series)
 #' for each sequence.
@@ -17,7 +17,7 @@
 #' @param lambda is a tuning parameter. Its value indicates the maximum number of spaces between di-nucleotide pairs. The number
 #' changes from 1 to lambda.
 #'
-#' @param w (weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.5.
+#' @param w (weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.05.
 #'
 #' @param l This parameter keeps the value of l in lmer composition. The lmers form the first 20^l elements of the APAAC descriptor.
 #'
@@ -39,7 +39,7 @@
 #' mat<-APAAC(seqs=filePrs,l=2,lambda=3,threshold=1)
 #'
 
-APAAC<-function(seqs,aaIDX=c("ARGP820101","HOPT810101"),lambda=3,w = 0.5,l=1,threshold=1,label=c())
+APAAC<-function(seqs,aaIDX=c("ARGP820101","HOPT810101"),lambda=30,w = 0.05,l=1,threshold=1,label=c())
 {
 
   path.pack=system.file("extdata",package="ftrCOOL")
@@ -159,5 +159,7 @@ APAAC<-function(seqs,aaIDX=c("ARGP820101","HOPT810101"),lambda=3,w = 0.5,l=1,thr
     featureMatrix<-cbind(featureMatrix,label)
   }
   row.names(featureMatrix)<-names(seqs)
+
+
   return(featureMatrix)
 }

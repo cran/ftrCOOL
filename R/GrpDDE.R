@@ -1,4 +1,4 @@
-#' Group Dipeptide Deviation from Expected Mean
+#' Group Dipeptide Deviation from Expected Mean (GrpDDE)
 #'
 #' This function is introduced by this package for the first time.
 #' In this function, amino acids are first grouped into user-defined categories.

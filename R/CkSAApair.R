@@ -1,4 +1,4 @@
-#' Composition of k-Spaced Amino Acids pairs
+#' Composition of k-Spaced Amino Acids pairs (CkSAApair)
 #'
 #'
 #' This function calculates the composition of k-spaced amino acid pairs. In other words, it

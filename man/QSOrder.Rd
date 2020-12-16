@@ -2,7 +2,7 @@
 % Please edit documentation in R/QSOrder.R
 \name{QSOrder}
 \alias{QSOrder}
-\title{Quasi Sequence Order}
+\title{Quasi Sequence Order (QSOrder)}
 \usage{
 QSOrder(seqs, nlag = 25, W = 0.1, label = c())
 }

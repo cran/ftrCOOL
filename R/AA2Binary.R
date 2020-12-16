@@ -1,4 +1,4 @@
-#' Amino Acid To Binary
+#' Amino Acid To Binary (AA2Binary)
 #'
 #' This function transforms an amino acid to a binary format.
 #' The type of the binary format is determined by the binaryType parameter.
@@ -10,10 +10,11 @@
 #' 'numBin' (numeric bin): Each amino acid is represented by a numeric (i.e., integer) vector containing 20 numerals. For example, A = ALANIN = c(1,0,0,0,0,0,0,...,0)
 #'
 #' @note This function is provided for sequences with the same lengths.
-#' Users can use 'txt' option in outFormat parameter for sequences with different lengths.
+#' Users can use 'txt' option in outFormat for sequences with different lengths.
 #' Warning: If outFormat is set to 'mat' for sequences with different lengths, it returns an error.
 #' Also, when output format is 'txt', label information is not shown in the text file.
-#' It is noteworthy that 'txt' format is not usable for machine learning purposes.
+#' It is noteworthy that 'txt' format is not usable for machine learning purposes if sequences have different sizes. Otherwise 'txt' format
+#' is also usable for machine learning purposes.
 #'
 #'
 #' @param seqs is a FASTA file with amino acid sequences. Each sequence starts
@@ -32,8 +33,7 @@
 #' If outFormat is set to 'mat', it returns a feature matrix for sequences with the same lengths.
 #' The number of rows is equal to the number of sequences and if binaryType is 'strBin', the number of columns is the length of the sequences.
 #' Otherwise, it is equal to (length of the sequences)*20.
-#' 'mat' format is used for machine learning purposes.
-#' If outFormat is 'txt', all binary values will be written to a 'txt' file. Each line in the file shows the binary format of a sequence.
+#' If outFormat is 'txt', all binary values will be written to a the output is written to a tab-delimited file. Each line in the file shows the binary format of a sequence.
 #'
 #' @export
 #'
@@ -104,14 +104,14 @@ AA2Binary <- function(seqs,binaryType="strBin",label=c(),outFormat="mat",outputF
 
     } else if(binaryType=="logicBin"){
 
-      featureMatrix<-matrix(F,nrow = numSeqs, ncol = (lenSeqs[1]*20))
+      featureMatrix<-matrix(FALSE,nrow = numSeqs, ncol = (lenSeqs[1]*20))
       rng<-(0:(lenSeqs[1]-1))*20
       for(n in 1:numSeqs){
         seq<-seqs[n]
         charSeq<-unlist(strsplit(seq,split = ""))
         pos1<-as.numeric(dict[charSeq])
         pos1<-rng+pos1
-        featureMatrix[n,pos1]<-T
+        featureMatrix[n,pos1]<-TRUE
       }
       colnames(featureMatrix)<-paste("pos:",rep(1:lenSeqs[1],each=20),"-",rep(aa,lenSeqs[1]))
 
@@ -156,7 +156,7 @@ AA2Binary <- function(seqs,binaryType="strBin",label=c(),outFormat="mat",outputF
       charSeq<-unlist(strsplit(seq,split = ""))
       temp<-c(nameSeq[n],binary[charSeq])
       temp<-paste(temp,collapse = "\t")
-      write(temp,outputFileDist,append = T)
+      write(temp,outputFileDist,append = TRUE)
     }
 
   }

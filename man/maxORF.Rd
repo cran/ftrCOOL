@@ -2,7 +2,7 @@
 % Please edit documentation in R/maxORF.R
 \name{maxORF}
 \alias{maxORF}
-\title{Maximum Open Reading Frame}
+\title{Maximum Open Reading Frame in DNA (maxORF)}
 \usage{
 maxORF(seqs, reverse = TRUE, label = c())
 }

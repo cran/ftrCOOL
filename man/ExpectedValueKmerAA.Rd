@@ -2,7 +2,7 @@
 % Please edit documentation in R/ExpectedValueKmerAA.R
 \name{ExpectedValueKmerAA}
 \alias{ExpectedValueKmerAA}
-\title{Expected Value for k-mers}
+\title{Expected Value for K-mer Amino Acid (ExpectedValueKmerAA)}
 \usage{
 ExpectedValueKmerAA(seqs, k = 2, normalized = TRUE, label = c())
 }

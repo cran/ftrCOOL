@@ -6,7 +6,12 @@ test_that("Check whether CTDC works properly",{
   # 222223223233
   # 232222222233
   # 131112112133
-  expected9<-c(0,8,4,0,9,3,7,2,3)
+
+
+  # 222223223233
+  # 131111111132
+  # 212221221211
+  expected9<-c(0,8,4,9,1,2,5,7,0)
   ctdc<-ctdc[1:9]
   names(expected9)<-NULL
   names(ctdc)<-NULL

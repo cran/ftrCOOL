@@ -2,7 +2,7 @@
 % Please edit documentation in R/zSCALE.R
 \name{zSCALE}
 \alias{zSCALE}
-\title{Z-SCALE}
+\title{Z-SCALE (zSCALE)}
 \usage{
 zSCALE(seqs, label = c(), outFormat = "mat", outputFileDist = "")
 }
@@ -20,7 +20,7 @@ each entry (i.e., sequence).}
 \value{
 The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
 matrix for sequences with the same length such that the number of columns is (sequence length)*(5)
-and the number of rows is equal to the number of sequences. It is usable for machine learning purposes.
+and the number of rows is equal to the number of sequences.
 If the outFormat is 'txt', the output is written to a tab-delimited file.
 }
 \description{

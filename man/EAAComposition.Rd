@@ -2,7 +2,7 @@
 % Please edit documentation in R/EAAComposition.R
 \name{EAAComposition}
 \alias{EAAComposition}
-\title{Enhanced Amino Acid Composition}
+\title{Enhanced Amino Acid Composition (EAAComposition)}
 \usage{
 EAAComposition(
   seqs,
@@ -33,21 +33,25 @@ each entry (i.e., sequence).}
 \value{
 The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
 matrix for sequences with the same length such that the number of columns is (20 * number of partitions displayed by the window)
-and the number of rows is equal to the number of sequences. It is usable for machine learning purposes.
+and the number of rows is equal to the number of sequences.
 If the outFormat is 'txt', the output is written to a tab-delimited file.
 }
 \description{
 This function slides a window over the input sequence(s).
 Also, it computes the composition of amino acids that appears within the limits of the window.
-Please note that when a feature vector of sequences is given as the input, their length should be equal.
-Otherwise, either an error (in case the outFortmat is 'mat') or a text file (when the outFortmat is 'txt') is returned.
-Please note that the text file is not suitable for machine learning purposes.
 }
 \details{
 Column names in the output matrix are Wi(aa), where aa shows an amino acid type ("A", "C", "D",..., "Y") and
 i indicates the number of times that the window has moved over the sequence(s).
 }
 \note{
+This function is provided for sequences with the same lengths.
+Users can use 'txt' option in outFormat for sequences with different lengths.
+Warning: If outFormat is set to 'mat' for sequences with different lengths, it returns an error.
+Also, when output format is 'txt', label information is not shown in the text file.
+It is noteworthy that 'txt' format is not usable for machine learning purposes if sequences have different sizes. Otherwise 'txt' format
+is also usable for machine learning purposes.
+
 When overlap is FALSE, the last partition represented by the window may have a different length with other parts.
 }
 \examples{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/conjointTriad.R
 \name{conjointTriad}
 \alias{conjointTriad}
-\title{Conjoint Triad}
+\title{Conjoint Triad (conjointTriad)}
 \usage{
 conjointTriad(seqs, normalized = TRUE, label = c())
 }

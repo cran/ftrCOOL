@@ -1,4 +1,4 @@
-#' Fasta File Reader
+#' Fasta File Reader (fa.read)
 #'
 #' This function reads a FASTA file. Each sequence starts with '>' in the file.
 #' This is a general function which can be applied to all types of sequences (i.e., protein/peptide, dna, and rna).

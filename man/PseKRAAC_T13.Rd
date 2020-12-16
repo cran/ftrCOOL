@@ -2,7 +2,7 @@
 % Please edit documentation in R/PseKRAAC_T13.R
 \name{PseKRAAC_T13}
 \alias{PseKRAAC_T13}
-\title{Pseudo K_tuple Reduced Amino Acid Composition(PseKRAAComposition Type_13)}
+\title{Pseudo K_tuple Reduced Amino Acid Composition Type_13 (PseKRAAC_T13)}
 \usage{
 PseKRAAC_T13(
   seqs,

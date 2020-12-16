@@ -1,14 +1,15 @@
-#' Blosum62
+#' Blosum62 (BLOSUM62)
 #'
 #' This function creates a 20-dimentional numeric vector for each amino acid of a sequence. Each entry of the vector contains
 #' the similarity score of the amino acid with other amino acids including itself. The score is extracted from the Blosum62 matrix.
 #'
 #'
 #' @note This function is provided for sequences with the same lengths.
-#' Users can use 'txt' option in outFormat parameter for sequences with different lengths.
+#' Users can use 'txt' option in outFormat for sequences with different lengths.
 #' Warning: If outFormat is set to 'mat' for sequences with different lengths, it returns an error.
 #' Also, when output format is 'txt', label information is not shown in the text file.
-#' It is noteworthy that 'txt' format is not usable for machine learning purposes.
+#' It is noteworthy that 'txt' format is not usable for machine learning purposes if sequences have different sizes. Otherwise 'txt' format
+#' is also usable for machine learning purposes.
 #'
 #' @param seqs is a FASTA file with amino acid sequences. Each sequence starts
 #' with a '>' character. Also, seqs could be a string vector. Each element of the vector is a peptide/protein sequence.
@@ -23,7 +24,7 @@
 #'
 #' @return The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
 #' matrix for sequences with the same length such that the number of columns is (sequence length)*20
-#' and the number of rows is equal to the number of sequences. It is usable for machine learning purposes.
+#' and the number of rows is equal to the number of sequences.
 #' If the outFormat is 'txt', the output is written to a tab-delimited file.
 #'
 #'

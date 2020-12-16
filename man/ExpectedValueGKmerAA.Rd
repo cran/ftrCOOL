@@ -2,7 +2,7 @@
 % Please edit documentation in R/ExpectedValueGKmerAA.R
 \name{ExpectedValueGKmerAA}
 \alias{ExpectedValueGKmerAA}
-\title{Expected Value for Grouped k-mers}
+\title{Expected Value for Grouped K-mer Amino Acid(ExpectedValueGKmerAA)}
 \usage{
 ExpectedValueGKmerAA(
   seqs,

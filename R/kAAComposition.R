@@ -1,4 +1,4 @@
-#' K Amino Acid Composition
+#' k Amino Acid Composition (kAAComposition)
 #'
 #' This function calculates the frequency of all k-mers in the sequence(s).
 #'
@@ -118,7 +118,6 @@ kAAComposition<-function(seqs,rng=3,upto=FALSE,normalized=TRUE,label=c()){
     mergedMatrix<-cbind(mergedMatrix,label)
   }
   row.names(mergedMatrix)<-names(seqs)
-
 
   return(mergedMatrix)
 

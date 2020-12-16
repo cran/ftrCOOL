@@ -2,7 +2,7 @@
 % Please edit documentation in R/CTD.R
 \name{CTD}
 \alias{CTD}
-\title{Composition_Transition_Distribution}
+\title{Composition_Transition_Distribution (CTD)}
 \usage{
 CTD(seqs, normalized = FALSE, label = c())
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/AA2Binary.R
 \name{AA2Binary}
 \alias{AA2Binary}
-\title{Amino Acid To Binary}
+\title{Amino Acid To Binary (AA2Binary)}
 \usage{
 AA2Binary(
   seqs,
@@ -33,8 +33,7 @@ The output is different depending on the outFormat parameter ('mat' or 'txt').
 If outFormat is set to 'mat', it returns a feature matrix for sequences with the same lengths.
 The number of rows is equal to the number of sequences and if binaryType is 'strBin', the number of columns is the length of the sequences.
 Otherwise, it is equal to (length of the sequences)*20.
-'mat' format is used for machine learning purposes.
-If outFormat is 'txt', all binary values will be written to a 'txt' file. Each line in the file shows the binary format of a sequence.
+If outFormat is 'txt', all binary values will be written to a the output is written to a tab-delimited file. Each line in the file shows the binary format of a sequence.
 }
 \description{
 This function transforms an amino acid to a binary format.
@@ -43,10 +42,11 @@ For details about each format, please refer to the description of the binaryType
 }
 \note{
 This function is provided for sequences with the same lengths.
-Users can use 'txt' option in outFormat parameter for sequences with different lengths.
+Users can use 'txt' option in outFormat for sequences with different lengths.
 Warning: If outFormat is set to 'mat' for sequences with different lengths, it returns an error.
 Also, when output format is 'txt', label information is not shown in the text file.
-It is noteworthy that 'txt' format is not usable for machine learning purposes.
+It is noteworthy that 'txt' format is not usable for machine learning purposes if sequences have different sizes. Otherwise 'txt' format
+is also usable for machine learning purposes.
 }
 \examples{
 

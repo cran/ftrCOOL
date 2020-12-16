@@ -1,4 +1,4 @@
-#' Ficket Score
+#' Fickett Score (fickettScore)
 #'
 #' This function calculates the ficket score of each sequence.
 #'

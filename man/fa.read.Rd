@@ -2,7 +2,7 @@
 % Please edit documentation in R/fa.read.R
 \name{fa.read}
 \alias{fa.read}
-\title{Fasta File Reader}
+\title{Fasta File Reader (fa.read)}
 \usage{
 fa.read(file, legacy.mode = TRUE, seqonly = FALSE, alphabet = "aa")
 }

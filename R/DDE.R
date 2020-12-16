@@ -1,4 +1,4 @@
-#' Dipeptide Deviation from Expected Mean value
+#' Dipeptide Deviation from Expected Mean value (DDE)
 #'
 #' This function computes the dipeptide deviation from the expected mean value.
 #'
@@ -72,7 +72,6 @@ DDE <-function(seqs,label=c())
     dde<-as.data.frame(dde)
     dde<-cbind(dde,label)
   }
-  row.names(dde)<-names(seqs)
 
   return(dde)
 

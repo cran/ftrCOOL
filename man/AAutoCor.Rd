@@ -2,7 +2,7 @@
 % Please edit documentation in R/AAutoCor.R
 \name{AAutoCor}
 \alias{AAutoCor}
-\title{Amino Acid Autocorrelation-Autocovariance}
+\title{Amino Acid Autocorrelation-Autocovariance (AAutoCor)}
 \usage{
 AAutoCor(
   seqs,
@@ -19,7 +19,9 @@ AAutoCor(
 with a '>' character. Also, seqs could be a string vector. Each element of the vector is a peptide/protein sequence.}
 
 \item{selectedAAidx}{Function takes as input the physicochemical properties. Users select the properties by their ids
-or indices in the aaIndex2 file. This parameter could be a vector or a list of amino acid indices.}
+or indices in the aaIndex2 file. This parameter could be a vector or a list of amino acid indices.
+The default values of the vector are the 'CIDH920105','BHAR880101','CHAM820101','CHAM820102','CHOC760101','BIGC670101','CHAM810101','DAYM780201'
+ids in the aaIndex2 file.}
 
 \item{maxlag}{This parameter shows the maximum gap between two amino acids. The gaps change from 1 to maxlag (the maximum lag).}
 

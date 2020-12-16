@@ -1,4 +1,4 @@
-#' Expected Value for Grouped Amino Acid
+#' Expected Value for Grouped Amino Acid (ExpectedValueGAA)
 #'
 #' This function is introduced by this package for the first time.
 #' In this function, amino acids are first grouped into user-defined categories.

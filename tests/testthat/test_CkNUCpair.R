@@ -1,13 +1,13 @@
 context("Just testing CkSNUCPair functionality")
 
-test_that("Check whether CkSNUCPair works with 0 sapce as the same as 2NUComposition",{
-  cksnucPair<-CkSNUCpair(seqs="ATCGACT",rng = 0)
-  expected<-kNUComposition(seqs="ATCGACT",rng = 2)
+test_that("Check whether CkSNUCPair_DNA works with 0 sapce as the same as 2NUComposition",{
+  cksnucPair<-CkSNUCpair_DNA(seqs="ATCGACT",rng = 0)
+  expected<-kNUComposition_DNA(seqs="ATCGACT",rng = 2)
   expect_equal(cksnucPair,expected)
 })
 
-test_that("Check whether CkSAAPair works with 1 sapce as the same as 2NUComposition",{
-  cksnucPair<-as.vector(CkSNUCpair(seqs="ATCGACT",rng = 1,normalized=FALSE))
+test_that("Check whether CkSAAPair_DNA works with 1 sapce as the same as 2NUComposition",{
+  cksnucPair<-as.vector(CkSNUCpair_DNA(seqs="ATCGACT",rng = 1,normalized=FALSE))
   preVect<-c("AsC"=1,"TsG"=1,"CsA"=1,"GsC"=1,"AsT"=1)
   dipep<-nameKmer(k=2,type = "dna")
 
@@ -29,4 +29,10 @@ test_that("Check whether CkSAAPair works with 1 sapce as the same as 2NUComposit
   names(vect)<-NULL
   names(cksnucPair)<-NULL
   expect_equal(cksnucPair,vect)
+})
+
+test_that("Check whether CkSNUCPair_RNA works with 0 sapce as the same as 2NUComposition",{
+  cksnucPair<-CkSNUCpair_RNA(seqs="AUCGACU",rng = 0)
+  expected<-kNUComposition_RNA(seqs="AUCGACU",rng = 2)
+  expect_equal(cksnucPair,expected)
 })

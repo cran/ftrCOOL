@@ -1,4 +1,4 @@
-#' Pseudo-Amino Acid Composition(PSEAAC) (Parallel)
+#' Pseudo-Amino Acid Composition (Parallel) (PSEAAC)
 #'
 #' This function calculates the pseudo amino acid composition (parallel)
 #' for each sequence.
@@ -15,7 +15,7 @@
 #' @param lambda is a tuning parameter. Its value indicates the maximum number of spaces between di-nucleotide pairs. The number
 #' changes from 1 to lambda.
 #'
-#' @param w (weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.5.
+#' @param w (weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.05.
 #'
 #' @param l This parameter keeps the value of l in lmer composition. The lmers form the first 20^l elements of the APAAC descriptor.
 #'
@@ -35,7 +35,7 @@
 #' mat<-PSEAAC(seqs=filePrs,l=2)
 
 
-PSEAAC<-function(seqs,aaIDX=c("ARGP820101","HOPT810101","Mass"),lambda=3,w = 0.05,l=1,threshold=1,label=c()){
+PSEAAC<-function(seqs,aaIDX=c("ARGP820101","HOPT810101","Mass"),lambda=30,w = 0.05,l=1,threshold=1,label=c()){
 
   path.pack=system.file("extdata",package="ftrCOOL")
   if(length(seqs)==1&&file.exists(seqs)){
@@ -136,6 +136,7 @@ PSEAAC<-function(seqs,aaIDX=c("ARGP820101","HOPT810101","Mass"),lambda=3,w = 0.0
     featureMatrix<-cbind(featureMatrix,label)
   }
   row.names(featureMatrix)<-names(seqs)
+
   return(featureMatrix)
 
 }

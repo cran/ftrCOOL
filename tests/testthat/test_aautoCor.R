@@ -31,14 +31,14 @@ test_that("Check whether length of AC vector is correct",{
 test_that("Check whether length of CC vector is correct",{
   CCcov<-AAutoCor(seqs="AYAAAC",maxlag = 3,type = "CC",threshold = 1)
   lenCC<-length(CCcov)
-  expected_len<-(8*7*3)/2
+  expected_len<-8*7*3
   expect_equal(lenCC,expected_len)
 })
 
 test_that("Check whether length of ACC vector is correct",{
   ACCcov<-AAutoCor(seqs="AYAAAC",maxlag = 3,type = "ACC",threshold = 1)
   lenACC<-length(ACCcov)
-  expected_len<-((8*7*3)/2)+(3*8)
+  expected_len<-8*8*3
   expect_equal(lenACC,expected_len)
 })
 

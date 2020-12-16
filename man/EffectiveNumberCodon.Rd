@@ -2,7 +2,7 @@
 % Please edit documentation in R/EffectiveNumberOfCodon.R
 \name{EffectiveNumberCodon}
 \alias{EffectiveNumberCodon}
-\title{Effective Number of Codon}
+\title{Effective Number of Codon (EffectiveNumberCodon)}
 \usage{
 EffectiveNumberCodon(seqs, ORF = FALSE, reverseORF = TRUE, label = c())
 }

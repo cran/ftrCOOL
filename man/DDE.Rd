@@ -2,7 +2,7 @@
 % Please edit documentation in R/DDE.R
 \name{DDE}
 \alias{DDE}
-\title{Dipeptide Deviation from Expected Mean value}
+\title{Dipeptide Deviation from Expected Mean value (DDE)}
 \usage{
 DDE(seqs, label = c())
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/AAKpartComposition.R
 \name{AAKpartComposition}
 \alias{AAKpartComposition}
-\title{Amino Acid to K Part Composition}
+\title{Amino Acid to K Part Composition (AAKpartComposition)}
 \usage{
 AAKpartComposition(seqs, k = 3, normalized = TRUE, label = c())
 }

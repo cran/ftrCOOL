@@ -2,7 +2,7 @@
 % Please edit documentation in R/ExpectedValueAA.R
 \name{ExpectedValueAA}
 \alias{ExpectedValueAA}
-\title{Expected Value for each Amino Acid}
+\title{Expected Value for each Amino Acid (ExpectedValueAA)}
 \usage{
 ExpectedValueAA(seqs, k = 2, normalized = TRUE, label = c())
 }

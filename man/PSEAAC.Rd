@@ -2,12 +2,12 @@
 % Please edit documentation in R/PSEAAC.R
 \name{PSEAAC}
 \alias{PSEAAC}
-\title{Pseudo-Amino Acid Composition(PSEAAC) (Parallel)}
+\title{Pseudo-Amino Acid Composition (Parallel) (PSEAAC)}
 \usage{
 PSEAAC(
   seqs,
   aaIDX = c("ARGP820101", "HOPT810101", "Mass"),
-  lambda = 3,
+  lambda = 30,
   w = 0.05,
   l = 1,
   threshold = 1,
@@ -25,7 +25,7 @@ in the amino acid index file.}
 \item{lambda}{is a tuning parameter. Its value indicates the maximum number of spaces between di-nucleotide pairs. The number
 changes from 1 to lambda.}
 
-\item{w}{(weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.5.}
+\item{w}{(weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.05.}
 
 \item{l}{This parameter keeps the value of l in lmer composition. The lmers form the first 20^l elements of the APAAC descriptor.}
 

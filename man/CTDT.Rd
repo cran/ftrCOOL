@@ -2,7 +2,7 @@
 % Please edit documentation in R/CTDT.R
 \name{CTDT}
 \alias{CTDT}
-\title{CTDT(CTD Transition)}
+\title{CTD Transition (CTDT)}
 \usage{
 CTDT(seqs, normalized = FALSE, label = c())
 }
@@ -17,7 +17,7 @@ each entry (i.e., sequence).}
 }
 \value{
 This function returns a feature matrix.
-The number of rows is equal to the number of sequences and the number of columns is 3*13,
+The number of rows is equal to the number of sequences and the number of columns is 3*7,
 where three is the number of transition types (i.e., 1-2, 1-3, and 2-3) and thirteen is the number of properties.
 }
 \description{

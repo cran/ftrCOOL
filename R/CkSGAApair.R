@@ -1,4 +1,4 @@
-#' Composition of k-Spaced Grouped Amino Acids pairs
+#' Composition of k-Spaced Grouped Amino Acids pairs (CkSGAApair)
 #'
 #' In this function, amino acids are first grouped into a category which is defined by the user.
 #' Later, the composition of the k-spaced grouped amino acids is computed.
@@ -196,6 +196,8 @@ CkSGAApair <- function(seqs,rng=3,upto=FALSE,normalized=TRUE,Grp="locFus",label=
     featureMatrix<-cbind(featureMatrix,label)
   }
   row.names(featureMatrix)<-names(seqs)
+
+
   return(featureMatrix)
 }
 

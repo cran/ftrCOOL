@@ -1,4 +1,4 @@
-#' Effective Number of Codon
+#' Effective Number of Codon (EffectiveNumberCodon)
 #'
 #' This function calculates the effective number of codon for each sequence.
 #'

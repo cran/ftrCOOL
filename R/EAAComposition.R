@@ -1,10 +1,14 @@
-#' Enhanced Amino Acid Composition
+#' Enhanced Amino Acid Composition (EAAComposition)
 #'
 #' This function slides a window over the input sequence(s).
 #' Also, it computes the composition of amino acids that appears within the limits of the window.
-#' Please note that when a feature vector of sequences is given as the input, their length should be equal.
-#' Otherwise, either an error (in case the outFortmat is 'mat') or a text file (when the outFortmat is 'txt') is returned.
-#' Please note that the text file is not suitable for machine learning purposes.
+#'
+#' @note This function is provided for sequences with the same lengths.
+#' Users can use 'txt' option in outFormat for sequences with different lengths.
+#' Warning: If outFormat is set to 'mat' for sequences with different lengths, it returns an error.
+#' Also, when output format is 'txt', label information is not shown in the text file.
+#' It is noteworthy that 'txt' format is not usable for machine learning purposes if sequences have different sizes. Otherwise 'txt' format
+#' is also usable for machine learning purposes.
 #'
 #' @references Chen, Zhen, et al. "iFeature: a python package and web server for features extraction and selection from protein and peptide sequences." Bioinformatics 34.14 (2018): 2499-2502.
 #'
@@ -33,7 +37,7 @@
 #'
 #' @return The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
 #' matrix for sequences with the same length such that the number of columns is (20 * number of partitions displayed by the window)
-#' and the number of rows is equal to the number of sequences. It is usable for machine learning purposes.
+#' and the number of rows is equal to the number of sequences.
 #' If the outFormat is 'txt', the output is written to a tab-delimited file.
 #'
 #'
@@ -52,6 +56,8 @@
 #' EAAComposition(seqs = filePrs,winSize=50, overLap=FALSE,outFormat="txt"
 #' ,outputFileDist=ad)
 #'
+
+
 
 
 EAAComposition <- function(seqs,winSize=50,overLap=TRUE,label=c(),outFormat='mat',outputFileDist="")
@@ -76,8 +82,6 @@ EAAComposition <- function(seqs,winSize=50,overLap=TRUE,label=c(),outFormat='mat
   else {
     stop("ERROR: Input sequence is not in the correct format. It should be a FASTA file or a string vector.")
   }
-
-
 
   lenSeqs<-sapply(seqs,nchar)
   if(!all(lenSeqs>=winSize)){
@@ -135,7 +139,14 @@ EAAComposition <- function(seqs,winSize=50,overLap=TRUE,label=c(),outFormat='mat
 
       seq<-seqs[n]
       subSeqs<-substring(seq,st,en)
-      temp<-lapply(subSeqs, function(i) kAAComposition(i,rng = 1,upto = FALSE,normalized = F))
+      temp<-lapply(subSeqs, function(x){
+        temp<-unlist(strsplit(x,""))
+        tabtemp<-table(temp)
+        tempvect<-vector(mode = "numeric",length = 20)
+        names(tempvect)<-c("A","C","D" ,"E" ,"F" ,"G" ,"H" ,"I" ,"K" ,"L" ,"M" ,"N", "P" ,"Q" ,"R", "S" ,"T" ,"V" ,"W","Y")
+        tempvect[names(tabtemp)]<-tabtemp
+        return(tempvect)
+      })
       temp2<-unlist(temp)
       featureMatrix[n,]<-temp2
 
@@ -160,8 +171,16 @@ EAAComposition <- function(seqs,winSize=50,overLap=TRUE,label=c(),outFormat='mat
 
       seq<-seqs[n]
       subSeqs<-substring(seq,st,en)
-      temp<-lapply(subSeqs, function(i) kAAComposition(i,rng = 1,upto = FALSE,normalized = F))
+      temp<-lapply(subSeqs, function(x){
+        temp<-unlist(strsplit(x,""))
+        tabtemp<-table(temp)
+        tempvect<-vector(mode = "numeric",length = 20)
+        names(tempvect)<-c("A","C","D" ,"E" ,"F" ,"G" ,"H" ,"I" ,"K" ,"L" ,"M" ,"N", "P" ,"Q" ,"R", "S" ,"T" ,"V" ,"W","Y")
+        tempvect[names(tabtemp)]<-tabtemp
+        return(tempvect)
+      })
       temp2<-unlist(temp)
+      names(temp2)<-NULL
       temp2<-c(nameSeq[n],temp2)
       temp3<-paste(temp2,collapse = "\t")
       write(temp3, outputFileDist, append=TRUE)

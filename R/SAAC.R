@@ -1,4 +1,4 @@
-#' Splitted Amino Acid Composition(SAAC)
+#' Splitted Amino Acid Composition (SAAC)
 #'
 #' This function splits the input sequence into three parts. The first part is N-terminal
 #' and the third part is C-terminal and middle part contains all amino acids between these two part.

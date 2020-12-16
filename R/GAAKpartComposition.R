@@ -1,4 +1,4 @@
-#' Grouped Amino Acid K Part Composition
+#' Grouped Amino Acid K Part Composition (GAAKpartComposition)
 #'
 #' In this function, amino acids are first grouped into user-defined categories.
 #' Later, the composition of the grouped amino acid k part is computed.

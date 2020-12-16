@@ -1,4 +1,4 @@
-#' Splitted Group Amino Acid Composition(SGAAC)
+#' Splitted Group Amino Acid Composition (SGAAC)
 #'
 #'
 #' In this function, amino acids are first grouped into a user-defined category.

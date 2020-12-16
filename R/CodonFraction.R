@@ -1,4 +1,4 @@
-#' Codon Fraction
+#' Codon Fraction (CodonFraction)
 #'
 #' This function calculates the codon fraction for each sequence.
 #'

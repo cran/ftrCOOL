@@ -2,7 +2,7 @@
 % Please edit documentation in R/GrpDDE.R
 \name{GrpDDE}
 \alias{GrpDDE}
-\title{Group Dipeptide Deviation from Expected Mean}
+\title{Group Dipeptide Deviation from Expected Mean (GrpDDE)}
 \usage{
 GrpDDE(seqs, Grp = "locFus", label = c())
 }

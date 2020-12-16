@@ -2,7 +2,7 @@
 % Please edit documentation in R/conjointTrKS.R
 \name{conjointTriadKS}
 \alias{conjointTriadKS}
-\title{k-Spaced Conjoint Triad}
+\title{k-Spaced Conjoint Triad (conjointTriadKS)}
 \usage{
 conjointTriadKS(seqs, rng = 3, upto = FALSE, normalized = FALSE, label = c())
 }

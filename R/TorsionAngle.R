@@ -1,0 +1,67 @@
+#' Torsion Angle (TorsionAngle)
+#'
+#' The inputs to this function are phi and psi angles of each amino acid in the sequence. We use the output of SPINE-X software to obtain the angles.
+#' Further, the TA function replaces each amino acid of the sequence with a vector. The vector contain two elements: The phi and psi angles.
+#'
+#' @note This function is provided for sequences with the same lengths.
+#' Users can use 'txt' option in outFormat parameter for sequences with different lengths.
+#' Warning: If the outFormat is set to 'mat' for sequences with different lengths, it returns an error.
+#' It is noteworthy that 'txt' format is not usable for machine learning purposes.
+#'
+#' @param dirPath Path of the directory which contains all output files of SPINE-X. Each file belongs to a sequence.
+#'
+#' @param outFormat It can take two values: 'mat' (which stands for matrix) and 'txt'. The default value is 'mat'.
+#'
+#' @param outputFileDist It shows the path and name of the 'txt' output file.
+#'
+#'
+#' @return The output is differnet depending on the outFormat parameter ('mat' or 'txt').
+#' If the outFormat is set to 'mat', it returns a feature matrix for sequences with the same lengths.
+#' The number of rows is equal to the number of sequences and the number of columns
+#' is (length of the sequence)*2.
+#' If the outFormat is set to 'txt', all binary values will be writen in a 'txt' file.
+#' Each row belongs to a sequence.
+#'
+#'
+#' @export
+#'
+#' @examples
+#'
+#' dir = tempdir()
+#' ad<-paste0(dir,"/ta.txt")
+#'
+#' PredTorsioNdir<-system.file("testForder",package="ftrCOOL")
+#' PredTorsioNdir<-paste0(PredTorsioNdir,"/TorsioNdir/")
+#' mat<-TorsionAngle(PredTorsioNdir,outFormat="txt",outputFileDist=ad)
+#'
+
+TorsionAngle<-function(dirPath,outFormat="mat",outputFileDist=""){
+
+
+  VectorSimple<-readTorsionDir(dirPath)
+  lens<-lapply(VectorSimple, length)
+
+  if(outFormat=="mat"){
+    if(length(unique(lens))==1){
+      simpleMatrix=matrix("",ncol = lens[[1]],nrow = length(VectorSimple))
+      colnames(simpleMatrix)<-paste0("pos",1:lens[[1]])
+      for(i in 1:nrow(simpleMatrix)){
+        simpleMatrix[i,]=VectorSimple[[i]]
+      }
+      return(simpleMatrix)
+    }
+    else{
+      stop("ERROR all sequences should be in the same lengths in 'mat' mode. Use 'txt' mode for outFormat parameter")
+    }
+  } else {
+    for(i in 1:length(VectorSimple)){
+      temp<-VectorSimple[[i]]
+      tempName<-paste0("sequence",i)
+      temp<-c(tempName,temp)
+      vect<-paste(temp,collapse = "\t")
+      write(vect,outputFileDist,append = TRUE)
+    }
+
+  }
+
+}

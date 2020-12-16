@@ -2,7 +2,7 @@
 % Please edit documentation in R/CkSAApair.R
 \name{CkSAApair}
 \alias{CkSAApair}
-\title{Composition of k-Spaced Amino Acids pairs}
+\title{Composition of k-Spaced Amino Acids pairs (CkSAApair)}
 \usage{
 CkSAApair(seqs, rng = 3, upto = FALSE, normalized = TRUE, label = c())
 }

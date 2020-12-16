@@ -2,7 +2,7 @@
 % Please edit documentation in R/nonStandardSeq.R
 \name{nonStandardSeq}
 \alias{nonStandardSeq}
-\title{nonStandard amino acid sequence}
+\title{nonStandard sequence (nonStandardSeq)}
 \usage{
 nonStandardSeq(file, legacy.mode = TRUE, seqonly = FALSE, alphabet = "aa")
 }

@@ -2,13 +2,13 @@
 % Please edit documentation in R/APAAC.R
 \name{APAAC}
 \alias{APAAC}
-\title{Amphiphilic Pseudo-Amino Acid Composition(APAAC) (series)}
+\title{Amphiphilic Pseudo-Amino Acid Composition(series) (APAAC)}
 \usage{
 APAAC(
   seqs,
   aaIDX = c("ARGP820101", "HOPT810101"),
-  lambda = 3,
-  w = 0.5,
+  lambda = 30,
+  w = 0.05,
   l = 1,
   threshold = 1,
   label = c()
@@ -25,7 +25,7 @@ in the amino acid index file.}
 \item{lambda}{is a tuning parameter. Its value indicates the maximum number of spaces between di-nucleotide pairs. The number
 changes from 1 to lambda.}
 
-\item{w}{(weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.5.}
+\item{w}{(weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.05.}
 
 \item{l}{This parameter keeps the value of l in lmer composition. The lmers form the first 20^l elements of the APAAC descriptor.}
 

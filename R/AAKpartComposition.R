@@ -1,4 +1,4 @@
-#' Amino Acid to K Part Composition
+#' Amino Acid to K Part Composition (AAKpartComposition)
 #'
 #' In this function, each sequence is divided into k equal partitions.
 #' The length of each part is equal to ceiling(l(lenght of the sequence)/k).

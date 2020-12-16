@@ -2,7 +2,7 @@
 % Please edit documentation in R/PseEIIP.R
 \name{PseEIIP}
 \alias{PseEIIP}
-\title{Pseudo Electron-ion Interaction Pseudopotentials of Trinucleotide(PseEIIP)}
+\title{Pseudo Electron-Ion Interaction Pseudopotentials of Trinucleotide (PseEIIP)}
 \usage{
 PseEIIP(seqs, label = c())
 }

@@ -1,4 +1,4 @@
-#' Expected Value for each Amino Acid
+#' Expected Value for each Amino Acid (ExpectedValueAA)
 #'
 #' This function is introduced by this package for the first time.
 #' It computes the expected value for each k-mer in a sequence.

@@ -1,4 +1,4 @@
-#' k-Spaced Conjoint Triad
+#' k-Spaced Conjoint Triad (conjointTriadKS)
 #'
 #' This function calculates the grouped tripeptide composition with conjoint
 #' triad grouping type. For each k, it creates a 7^3 feature vector.
@@ -142,6 +142,8 @@ conjointTriadKS <- function(seqs,rng=3,upto=FALSE,normalized=FALSE,label=c()){
     featureMatrix<-cbind(featureMatrix,label)
   }
   row.names(featureMatrix)<-names(seqs)
+
+
   return(featureMatrix)
 }
 

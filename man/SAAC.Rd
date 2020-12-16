@@ -2,7 +2,7 @@
 % Please edit documentation in R/SAAC.R
 \name{SAAC}
 \alias{SAAC}
-\title{Splitted Amino Acid Composition(SAAC)}
+\title{Splitted Amino Acid Composition (SAAC)}
 \usage{
 SAAC(seqs, k = 1, numNterm = 5, numCterm = 5, normalized = TRUE, label = c())
 }

@@ -1,4 +1,4 @@
-#' Maximum Open Reading Frame
+#' Maximum Open Reading Frame in DNA (maxORF)
 #'
 #' This function gets a sequence as the input.
 #' If reverse is true, the function extracts the max Open Reading Frame in the sequence and its reverse complement (hint: Six frames).

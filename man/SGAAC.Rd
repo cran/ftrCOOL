@@ -2,7 +2,7 @@
 % Please edit documentation in R/SGAAC.R
 \name{SGAAC}
 \alias{SGAAC}
-\title{Splitted Group Amino Acid Composition(SGAAC)}
+\title{Splitted Group Amino Acid Composition (SGAAC)}
 \usage{
 SGAAC(
   seqs,

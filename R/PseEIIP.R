@@ -1,4 +1,4 @@
-#' Pseudo Electron-ion Interaction Pseudopotentials of Trinucleotide(PseEIIP)
+#' Pseudo Electron-Ion Interaction Pseudopotentials of Trinucleotide (PseEIIP)
 #'
 #' This function calculates the pseudo electron-ion interaction for each sequence.
 #' It creates a feature vector for each sequence.
@@ -61,22 +61,30 @@ PseEIIP <- function(seqs,label=c())
   aaIdx<-c("A"=0.1260,"C"=0.1340,"G"=0.0806,"T"=0.1335)
 
 
-  featureMatrix<-kNUComposition(seqs,rng=3)
+featureMatrix<-kNUComposition_DNA(seqs=seqs,rng=3,reverse = FALSE,upto = FALSE,ORF = FALSE,normalized = FALSE)
   nam<-nameKmer(k=3,type = "dna")
 
   EIIP3mer<-vector(mode = "numeric",length = (4^3))
+
   for(j in 1:length(nam)){
     chars<-unlist(strsplit(nam[j],""))
     EIIP3mer[j]<-sum(aaIdx[chars])
   }
 
-  featureMatrix<-t(t(featureMatrix)*EIIP3mer)
+  for(i in 1:numSeqs){
+    featureMatrix[i,]=featureMatrix[i,]*EIIP3mer
+  }
+
+  #featureMatrix<-t(t(featureMatrix)*EIIP3mer)
 
   if(length(label)==numSeqs){
     featureMatrix<-as.data.frame(featureMatrix)
     featureMatrix<-cbind(featureMatrix,label)
   }
   row.names(featureMatrix)<-names(seqs)
+
+
+
   return(featureMatrix)
 
 

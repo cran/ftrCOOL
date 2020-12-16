@@ -6,15 +6,16 @@ test_that("Check whether PseEIIP converts nucleotides to their electeron ion val
   vectTri<-vector(mode = "numeric",length = 4^3)
   names(vectTri)<-nam3mer
 
+  #(A: 0.1260, C: 0.1340, G: 0.0806, T:0.1335)
   EIIP<-c(0.1260,0.1335,0.1260,0.1340,0.0806)
-  vectTri[c("ATA","TAC","ACG")]<-c((1/5*(0.1260+0.1335+0.1260)),(1/5*(0.1335+0.1260+0.1340)),(1/5)*(0.1260+0.1340+0.0806))
+  vectTri[c("ATA","TAC","ACG")]<-c((1*(0.1260+0.1335+0.1260)),(1*(0.1335+0.1260+0.1340)),(1*(0.1260+0.1340+0.0806)))
   names(vectTri)<-NULL
   expect_equal(pseEIIPfun,vectTri)
   matrix<-PseEIIP(seqs = c("ATACG","AATGG"))
   dimnames(matrix)<-NULL
   newVect<-vector(mode = "numeric",length = 4^3)
   names(newVect)<-nam3mer
-  newVect[c("AAT","ATG","TGG")]<-c(1/5*(0.1260+0.1260+0.1335),1/5*(0.1260+0.1335+0.0806),1/5*(0.1335+0.0806+0.0806))
+  newVect[c("AAT","ATG","TGG")]<-c(1*(0.1260+0.1260+0.1335),1*(0.1260+0.1335+0.0806),1*(0.1335+0.0806+0.0806))
   expected_mat<-rbind(vectTri,newVect)
   dimnames(expected_mat)<-NULL
   expect_equal(matrix,expected_mat)

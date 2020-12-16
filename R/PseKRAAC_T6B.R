@@ -1,4 +1,4 @@
-#' Pseudo K_tuple Reduced Amino Acid Composition(PseKRAAComposition Type_6B)
+#' Pseudo K_tuple Reduced Amino Acid Composition Type-6B (PseKRAAC_T6B)
 #'
 #' There are 16 types of PseKRAAC function.
 #' In the functions, a (user-selected) grouping of the amino acids might be used to reduce the amino acid alphabet.

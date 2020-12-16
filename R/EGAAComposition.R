@@ -1,9 +1,15 @@
-#' Enhanced Grouped Amino Acid Composition
+#' Enhanced Grouped Amino Acid Composition (EGAAComposition)
 #'
 #' In this function, amino acids are first grouped into user-defined categories. Then, enhanced grouped amino acid composition is computed.
 #' For details about the enhanced feature, please refer to function \link{EAAComposition}.
 #' Please note that this function differs from function \link{EAAComposition} which works on individual amino acids.
 #'
+#' @note This function is provided for sequences with the same lengths.
+#' Users can use 'txt' option in outFormat for sequences with different lengths.
+#' Warning: If outFormat is set to 'mat' for sequences with different lengths, it returns an error.
+#' Also, when output format is 'txt', label information is not shown in the text file.
+#' It is noteworthy that 'txt' format is not usable for machine learning purposes if sequences have different sizes. Otherwise 'txt' format
+#' is also usable for machine learning purposes.
 #'
 #' @param seqs is a FASTA file with amino acid sequences. Each sequence starts
 #' with a '>' character. Also, seqs could be a string vector. Each element of the vector is a peptide/protein sequence.
@@ -27,7 +33,7 @@
 #'
 #' @return The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
 #' matrix for sequences with the same length such that the number of columns is ((number of categorizes) * (number of windows))
-#' and the number of rows is equal to the number of sequences. It is usable for machine learning purposes.
+#' and the number of rows is equal to the number of sequences.
 #' If the outFormat is 'txt', the output is written to a tab-delimited file.
 #'
 #'
@@ -186,14 +192,51 @@ EGAAComposition <- function(seqs,winSize=50,overLap=TRUE,Grp="locFus",label=c(),
     }
     names(aa)<-grps
 
+    vect<-c()
+
+    if(numGrp<10){
+      vect<-1:numGrp
+      vect<-as.character(vect)
+      len<-numGrp
+    } else {
+      if(numGrp>20){
+        stop("ERROR: num should be less than 20")
+      } else {
+        VectGrp<-c("Grp10"='a',"Grp11"='b',"Grp12"='c',"Grp13"='d',"Grp14"='e',"Grp15"='f',"Grp16"='g',"Grp17"='h',"Grp18"='i',"Grp19"='j',"Grp20"='k')
+        VectGrp<-VectGrp[1:(numGrp-9)]
+        vect<-c(1:9,VectGrp)
+      }
+    }
+
 
     for(n in 1:numSeqs){
 
       seq<-seqs[n]
+      seqChars<-unlist(strsplit(seq,split = ""))
+
+      GrpSeq<-aa[seqChars]
+      lenSeq<-length(GrpSeq)
+      seq<-paste0(GrpSeq,collapse = "")
+
+
       subSeqs<-substring(seq,st,en)
-      temp<-sapply(subSeqs, function(i) kGAAComposition(i,rng = 1,upto = FALSE,normalized = FALSE,Grp=Grp))
-      temp<-as.vector(temp)
-      featureMatrix[n,]<-temp
+
+      temp<-lapply(subSeqs, function(x){
+        temp<-unlist(strsplit(x,""))
+        tabtemp<-table(temp)
+        return(tabtemp)
+      })
+
+
+      totalVect<-c()
+      for(i in 1:length(temp)){
+        tempvect<-vector(mode = "numeric",length = numGrp)
+        names(tempvect)<-vect
+        tempvect[names(temp[[i]])]<-temp[[i]]
+        totalVect<-c(totalVect,tempvect)
+      }
+
+      featureMatrix[n,]<-totalVect
     }
 
 
@@ -210,22 +253,81 @@ EGAAComposition <- function(seqs,winSize=50,overLap=TRUE,Grp="locFus",label=c(),
 
     aa<-vector()
     nameSeq<-names(seqs)
+    VectGrp<-c("Grp10"='a',"Grp11"='b',"Grp12"='c',"Grp13"='d',"Grp14"='e',"Grp15"='f',"Grp16"='g',"Grp17"='h',"Grp18"='i',"Grp19"='j',"Grp20"='k')
+
+
     for (i in 1:numGrp)
     {
-      vect<-rep(i,length(Group[[i]]))
-      aa<-c(aa,vect)
+      if(i<10){
+        vect<-rep(i,length(Group[[i]]))
+        aa<-c(aa,vect)
+      } else if(i<=20){
+        aa<-c(aa,rep(VectGrp[(i-9)],length(Group[[i]])))
+      }
     }
+
+
+
     names(aa)<-grps
+
+
+    #tempvect<-vector(mode = "numeric",length = numGrp)
+    vect<-c()
+
+    if(numGrp<10){
+      vect<-1:numGrp
+      vect<-as.character(vect)
+      len<-numGrp
+    } else {
+      if(numGrp>20){
+        stop("ERROR: num should be less than 20")
+      } else {
+        VectGrp<-c("Grp10"='a',"Grp11"='b',"Grp12"='c',"Grp13"='d',"Grp14"='e',"Grp15"='f',"Grp16"='g',"Grp17"='h',"Grp18"='i',"Grp19"='j',"Grp20"='k')
+        VectGrp<-VectGrp[1:(numGrp-9)]
+        vect<-c(1:9,VectGrp)
+      }
+    }
+
+
 
 
     for(n in 1:numSeqs){
 
       seq<-seqs[n]
+      seqChars<-unlist(strsplit(seq,split = ""))
+
+      GrpSeq<-aa[seqChars]
+      lenSeq<-length(GrpSeq)
+      seq<-paste0(GrpSeq,collapse = "")
+
       subSeqs<-substring(seq,st,en)
-      temp<-sapply(subSeqs, function(i) kGAAComposition(i,rng = 1,upto = FALSE,normalized = FALSE,Grp=Grp))
-      temp<-unlist(temp)
-      temp<-c(nameSeq[n],temp)
-      temp2<-paste(temp,collapse = "\t")
+
+
+      #temp<-lapply(subSeqs, myfunc,num=numGrp)
+      temp<-lapply(subSeqs, function(x){
+        temp<-unlist(strsplit(x,""))
+        tabtemp<-table(temp)
+        return(tabtemp)
+      })
+
+
+
+
+      totalVect<-c()
+      for(i in 1:length(temp)){
+        tempvect<-vector(mode = "numeric",length = numGrp)
+        names(tempvect)<-vect
+        tempvect[names(temp[[i]])]<-temp[[i]]
+        totalVect<-c(totalVect,tempvect)
+      }
+
+      #temp<-unlist(temp)
+      totalVect<-c(nameSeq[n],totalVect)
+
+
+
+
+      temp2<-paste(totalVect,collapse = "\t")
       write(temp2,outputFileDist,append = TRUE)
     }
 

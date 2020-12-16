@@ -1,4 +1,4 @@
-#' Conjoint Triad
+#' Conjoint Triad (conjointTriad)
 #'
 #' This function calculates the grouped tripeptide composition with the conjoint triad grouping type.
 #'
@@ -26,6 +26,7 @@
 conjointTriad<- function(seqs,normalized=TRUE,label=c()){
 
 
-cTriad<-kGAAComposition(seqs,rng=3,normalized = normalized,upto = FALSE,Grp = "cTriad",label = label)
+  cTriad<-kGAAComposition(seqs,rng=3,normalized = normalized,upto = FALSE,Grp = "cTriad",label = label)
+
   return(cTriad)
 }

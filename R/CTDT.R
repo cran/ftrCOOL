@@ -1,4 +1,4 @@
-#' CTDT(CTD Transition)
+#' CTD Transition (CTDT)
 #'
 #' This function computes the transition part of \link{CTD}. Thirteen properties are defined in this function. Each
 #' property categorizes the amino acids of a sequence into three groups. For each property, the grouped amino acid transition (i.e., transitions 1-2, 1-3, and 2-3)
@@ -16,7 +16,7 @@
 #' each entry (i.e., sequence).
 #'
 #' @return This function returns a feature matrix.
-#' The number of rows is equal to the number of sequences and the number of columns is 3*13,
+#' The number of rows is equal to the number of sequences and the number of columns is 3*7,
 #' where three is the number of transition types (i.e., 1-2, 1-3, and 2-3) and thirteen is the number of properties.
 #'
 #'
@@ -51,21 +51,15 @@ CTDT<-function(seqs,normalized=FALSE,label=c()){
   }
 
 
-  numGrp=13
+  numGrp=7
 
   numSeqs<-length(seqs)
 
-  ctdt<-matrix(0,ncol = 3*13,nrow = numSeqs)
-  colnames(ctdt)<-paste0("G",rep(1:numGrp,each=3),rep(c("1,2","1,3","2,3"),13))
+  ctdt<-matrix(0,ncol = 3*7,nrow = numSeqs)
+  colnames(ctdt)<-paste0("G",rep(1:numGrp,each=3),rep(c("1,2","1,3","2,3"),7))
 
 
   group1<-list("hydrophobicity_PRAM900101"= c("R","K","E","D","Q","N"),
-               "hydrophobicity_ARGP820101"= c("Q","S","T","N","G","D","E"),
-               "hydrophobicity_ZIMJ680101"= c("Q","N","G","S","W","T","D","E","R","A"),
-               "hydrophobicity_PONP930101"= c("K","P","D","E","S","N","Q","T"),
-               "hydrophobicity_CASG920101"= c("K","D","E","Q","P","S","R","N","T","G"),
-               "hydrophobicity_ENGD860101"= c("R","D","K","E","N","Q","H","Y","P"),
-               "hydrophobicity_FASG890101"= c("K","E","R","S","Q","D"),
                "normwaalsvolume"= c("G","A","S","T","P","D","C"),
                "polarity"=        c("L","I","F","W","C","M","V","Y"),
                "polarizability"=  c("G","A","S","D","T"),
@@ -74,12 +68,6 @@ CTDT<-function(seqs,normalized=FALSE,label=c()){
                "solventaccess"=   c("A","L","F","C","G","I","V","W"))
 
   group2<-list("hydrophobicity_PRAM900101"= c("G","A","S","T","P","H","Y"),
-               "hydrophobicity_ARGP820101"= c("R","A","H","C","K","M","V"),
-               "hydrophobicity_ZIMJ680101"= c("H","M","C","K","V"),
-               "hydrophobicity_PONP930101"= c("G","R","H","A"),
-               "hydrophobicity_CASG920101"= c("A","H","Y","M","L","V"),
-               "hydrophobicity_ENGD860101"= c("S","G","T","A","W"),
-               "hydrophobicity_FASG890101"= c("N","T","P","G"),
                "normwaalsvolume"= c("N","V","E","Q","I","L"),
                "polarity"=        c("P","A","T","G","S"),
                "polarizability"=  c("C","P","N","V","E","Q","I","L"),
@@ -88,12 +76,6 @@ CTDT<-function(seqs,normalized=FALSE,label=c()){
                "solventaccess"=  c("R","K","Q","E","N","D"))
 
   group3<-list("hydrophobicity_PRAM900101"= c("C","L","V","I","M","F","W"),
-               "hydrophobicity_ARGP820101"= c("L","Y","P","F","I","W"),
-               "hydrophobicity_ZIMJ680101"= c("L","P","F","Y","I"),
-               "hydrophobicity_PONP930101"= c("Y","M","F","W","L","C","V","I"),
-               "hydrophobicity_CASG920101"= c("F","I","W","C"),
-               "hydrophobicity_ENGD860101"= c("C","V","L","I","M","F"),
-               "hydrophobicity_FASG890101"= c("A","Y","H","W","V","M","F","L","I","C"),
                "normwaalsvolume"= c("M","H","K","F","R","Y","W"),
                "polarity"=        c("H","Q","R","K","N","E","D"),
                "polarizability"=  c("K","M","H","F","R","Y","W"),
@@ -102,8 +84,7 @@ CTDT<-function(seqs,normalized=FALSE,label=c()){
                "solventaccess"=   c("M","S","P","T","H","Y"))
   groups<-list("grp1"=group1,"grp2"=group2,"grp3"=group3)
 
-  properties<-c("hydrophobicity_PRAM900101", "hydrophobicity_ARGP820101", "hydrophobicity_ZIMJ680101", "hydrophobicity_PONP930101",
-                "hydrophobicity_CASG920101", "hydrophobicity_ENGD860101", "hydrophobicity_FASG890101", "normwaalsvolume",
+  properties<-c("hydrophobicity_PRAM900101", "normwaalsvolume",
                 "polarity", "polarizability", "charge", "secondarystruct", "solventaccess")
 
 
@@ -168,6 +149,8 @@ CTDT<-function(seqs,normalized=FALSE,label=c()){
   }
 
   row.names(ctdt)<-names(seqs)
+
+
   return(ctdt)
 
 

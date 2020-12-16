@@ -2,7 +2,7 @@
 % Please edit documentation in R/codonAdaptionIndex.R
 \name{codonAdaptionIndex}
 \alias{codonAdaptionIndex}
-\title{Codon Adaption Index}
+\title{Codon Adaption Index (codonAdaptionIndex)}
 \usage{
 codonAdaptionIndex(seqs, ORF = FALSE, reverseORF = TRUE, label = c())
 }

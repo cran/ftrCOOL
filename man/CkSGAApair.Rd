@@ -2,7 +2,7 @@
 % Please edit documentation in R/CkSGAApair.R
 \name{CkSGAApair}
 \alias{CkSGAApair}
-\title{Composition of k-Spaced Grouped Amino Acids pairs}
+\title{Composition of k-Spaced Grouped Amino Acids pairs (CkSGAApair)}
 \usage{
 CkSGAApair(
   seqs,

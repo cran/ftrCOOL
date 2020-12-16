@@ -2,7 +2,7 @@
 % Please edit documentation in R/nameKmer.R
 \name{nameKmer}
 \alias{nameKmer}
-\title{nameKmer}
+\title{naming Kmer (nameKmer)}
 \usage{
 nameKmer(k = 3, type = "aa", num = 0)
 }

@@ -2,9 +2,9 @@
 % Please edit documentation in R/revComp.R
 \name{revComp}
 \alias{revComp}
-\title{reverseCompelement}
+\title{reverseCompelement (revComp)}
 \usage{
-revComp(seq, outputType = "char")
+revComp(seq, outputType = "str")
 }
 \arguments{
 \item{seq}{is a dna sequence.}
@@ -12,7 +12,7 @@ revComp(seq, outputType = "char")
 \item{outputType}{this parameter can take two values: 'char' or 'str'. If outputType is
 'str', the reverse complement sequence of the input sequence is returned as a string.
 Otherwise, a vector of characters which represent the reverse complement is returned.
-Default value is 'char'.}
+Default value is 'str'.}
 }
 \value{
 The reverse complement of the input sequence.

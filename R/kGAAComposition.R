@@ -1,4 +1,4 @@
-#' K Grouped Amino Acid Composition
+#' k Grouped Amino Acid Composition (kGAAComposition)
 #'
 #' In this function, amino acids are first grouped into user-defined categories.
 #' Later, the composition of the k grouped amino acids is computed.
@@ -197,6 +197,9 @@ kGAAComposition<- function(seqs,rng=3,upto=FALSE,normalized=TRUE,Grp="locFus",la
     mergedMatrix<-cbind(mergedMatrix,label)
   }
   row.names(mergedMatrix)<-names(seqs)
+
+
+
   return(mergedMatrix)
 
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/CodonFraction.R
 \name{CodonFraction}
 \alias{CodonFraction}
-\title{Codon Fraction}
+\title{Codon Fraction (CodonFraction)}
 \usage{
 CodonFraction(seqs, ORF = FALSE, reverseORF = TRUE, label = c())
 }

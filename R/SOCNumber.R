@@ -1,4 +1,4 @@
-#' Sequence Order Coupling Number
+#' Sequence Order Coupling Number (SOCNumber)
 #'
 #' This function uses dissimilarity matrices Grantham and Schneider to compute the dissimilarity between amino acid pairs.
 #' The distance between amino acid pairs is determined by d which varies between 1 to nlag.
@@ -116,6 +116,7 @@ SOCNumber<-function(seqs,nlag=30,label=c()){
     featureMatrix<-cbind(featureMatrix,label)
   }
   row.names(featureMatrix)<-names(seqs)
+
   return(featureMatrix)
 
 }

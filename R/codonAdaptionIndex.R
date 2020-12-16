@@ -1,4 +1,4 @@
-#' Codon Adaption Index
+#' Codon Adaption Index (codonAdaptionIndex)
 #'
 #' This function calculates the codon adaption index for each sequence.
 #'

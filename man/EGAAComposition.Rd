@@ -2,7 +2,7 @@
 % Please edit documentation in R/EGAAComposition.R
 \name{EGAAComposition}
 \alias{EGAAComposition}
-\title{Enhanced Grouped Amino Acid Composition}
+\title{Enhanced Grouped Amino Acid Composition (EGAAComposition)}
 \usage{
 EGAAComposition(
   seqs,
@@ -38,13 +38,21 @@ each entry (i.e., sequence).}
 \value{
 The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
 matrix for sequences with the same length such that the number of columns is ((number of categorizes) * (number of windows))
-and the number of rows is equal to the number of sequences. It is usable for machine learning purposes.
+and the number of rows is equal to the number of sequences.
 If the outFormat is 'txt', the output is written to a tab-delimited file.
 }
 \description{
 In this function, amino acids are first grouped into user-defined categories. Then, enhanced grouped amino acid composition is computed.
 For details about the enhanced feature, please refer to function \link{EAAComposition}.
 Please note that this function differs from function \link{EAAComposition} which works on individual amino acids.
+}
+\note{
+This function is provided for sequences with the same lengths.
+Users can use 'txt' option in outFormat for sequences with different lengths.
+Warning: If outFormat is set to 'mat' for sequences with different lengths, it returns an error.
+Also, when output format is 'txt', label information is not shown in the text file.
+It is noteworthy that 'txt' format is not usable for machine learning purposes if sequences have different sizes. Otherwise 'txt' format
+is also usable for machine learning purposes.
 }
 \examples{
 

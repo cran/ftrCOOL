@@ -2,7 +2,7 @@
 % Please edit documentation in R/SOCNumber.R
 \name{SOCNumber}
 \alias{SOCNumber}
-\title{Sequence Order Coupling Number}
+\title{Sequence Order Coupling Number (SOCNumber)}
 \usage{
 SOCNumber(seqs, nlag = 30, label = c())
 }

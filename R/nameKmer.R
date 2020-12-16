@@ -1,4 +1,4 @@
-#' nameKmer
+#' naming Kmer (nameKmer)
 #'
 #' This function creates all possible k-combinations of the given alphabets.
 #'
@@ -32,7 +32,7 @@ nameKmer<-function(k=3,type="aa",num=0){
     vect<-c("A","C","G","T")
     len<-length(vect)
   } else if(type=="rna"){
-    vect<-c("A","C","G","T")
+    vect<-c("A","C","G","U")
     len<-length(vect)
   } else if(type=="num") {
     if(num<10){

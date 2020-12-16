@@ -2,7 +2,7 @@
 % Please edit documentation in R/kAAComposition.R
 \name{kAAComposition}
 \alias{kAAComposition}
-\title{K Amino Acid Composition}
+\title{k Amino Acid Composition (kAAComposition)}
 \usage{
 kAAComposition(seqs, rng = 3, upto = FALSE, normalized = TRUE, label = c())
 }

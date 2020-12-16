@@ -2,7 +2,7 @@
 % Please edit documentation in R/kGAAComposition.R
 \name{kGAAComposition}
 \alias{kGAAComposition}
-\title{K Grouped Amino Acid Composition}
+\title{k Grouped Amino Acid Composition (kGAAComposition)}
 \usage{
 kGAAComposition(
   seqs,

@@ -1,4 +1,4 @@
-#' Amino Acid Autocorrelation-Autocovariance
+#' Amino Acid Autocorrelation-Autocovariance (AAutoCor)
 #'
 #' It creates the feature matrix for each function in autocorelation
 #' (i.e., Moran, Greay, NormalizeMBorto) or autocovariance (i.e., AC, CC,ACC). The user can
@@ -19,6 +19,8 @@
 #'
 #' @param selectedAAidx Function takes as input the physicochemical properties. Users select the properties by their ids
 #' or indices in the aaIndex2 file. This parameter could be a vector or a list of amino acid indices.
+#' The default values of the vector are the 'CIDH920105','BHAR880101','CHAM820101','CHAM820102','CHOC760101','BIGC670101','CHAM810101','DAYM780201'
+#' ids in the aaIndex2 file.
 #'
 #'
 #' @param maxlag This parameter shows the maximum gap between two amino acids. The gaps change from 1 to maxlag (the maximum lag).
@@ -213,6 +215,7 @@ AAutoCor<-function(seqs,selectedAAidx=list(c('CIDH920105','BHAR880101','CHAM8201
   }
   row.names(featureMatrix)<-names(seqs)
 
+
   return(totalfeatureMatrix)
 
 }
@@ -347,10 +350,18 @@ CC_CorAA<- function(selectedProp, maxLag=30,aaIdx,pPrim,numSeqs,lenSeqs,charact)
     selectedProp[[1]]<-tempVect
   }
   len<-lapply(selectedProp, length)
+  newProp0<-list()
+  index=1
   for(i in length(len):1)
   {
     if(len[i]<2){
       selectedProp[[i]]<-NULL
+      next()
+    }
+    if(len[i]==2){
+      newVect<-c(selectedProp[[i]][2],selectedProp[[i]][1])
+      newProp0[[index]]<-newVect
+      index=index+1
     }
   }
   ind=1
@@ -360,13 +371,20 @@ CC_CorAA<- function(selectedProp, maxLag=30,aaIdx,pPrim,numSeqs,lenSeqs,charact)
       comb<-combn(selectedProp[[ind]],2)
       newProp<-split(comb, rep(1:ncol(comb), each = nrow(comb)))
       selectedProp[ind]<-NULL
+
       selectedProp<-append(selectedProp,newProp)
+
+      newProp2<-lapply(newProp, rev)
+
+      selectedProp<-append(selectedProp,newProp2)
+
     }
     else {
       ind=ind+1
     }
 
   }
+  selectedProp<-append(selectedProp,newProp0)
   selectedProp<-unique(selectedProp)
 
   totalMatrix<-matrix(0,nrow = numSeqs,ncol = (length(selectedProp)*maxLag))
@@ -411,14 +429,13 @@ ACC_CorAA<- function(selectedProp, maxLag=30,aaIdx,pPrim,numSeqs,lenSeqs,charact
     selectedProp<-list()
     selectedProp[[1]]<-tempVect
   }
-  len<-sapply(selectedProp, length)
+  len<-lapply(selectedProp, length)
   newProp0<-list()
   index=1
   lens<-length(len)
   for(i in lens:1)
   {
-    print(len[i])
-    print(i)
+
     if(len[i]==1){
       newVect<-c(selectedProp[[i]],selectedProp[[i]])
       newProp0[[index]]<-newVect
@@ -426,10 +443,14 @@ ACC_CorAA<- function(selectedProp, maxLag=30,aaIdx,pPrim,numSeqs,lenSeqs,charact
       selectedProp[i]<-NULL
       next()
     }
-    print(len[i])
     if(len[i]==0){
-      print(len[i])
       selectedProp[i]<-NULL
+      next()
+    }
+    if(len[i]==2){
+      newVect<-c(selectedProp[[i]][2],selectedProp[[i]][1])
+      newProp0[[index]]<-newVect
+      index=index+1
     }
   }
   ind=1
@@ -442,6 +463,10 @@ ACC_CorAA<- function(selectedProp, maxLag=30,aaIdx,pPrim,numSeqs,lenSeqs,charact
       newProp<-split(comb, rep(1:ncol(comb), each = nrow(comb)))
       selectedProp[ind]<-NULL
       selectedProp<-append(selectedProp,newProp)
+
+      newProp2<-lapply(newProp, rev)
+
+      selectedProp<-append(selectedProp,newProp2)
 
     } else {
       ind=ind+1

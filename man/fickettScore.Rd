@@ -2,7 +2,7 @@
 % Please edit documentation in R/fickettScore.R
 \name{fickettScore}
 \alias{fickettScore}
-\title{Ficket Score}
+\title{Fickett Score (fickettScore)}
 \usage{
 fickettScore(seqs, ORF = FALSE, reverseORF = TRUE, label = c())
 }

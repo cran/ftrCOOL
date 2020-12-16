@@ -2,7 +2,7 @@
 % Please edit documentation in R/GAAKpartComposition.R
 \name{GAAKpartComposition}
 \alias{GAAKpartComposition}
-\title{Grouped Amino Acid K Part Composition}
+\title{Grouped Amino Acid K Part Composition (GAAKpartComposition)}
 \usage{
 GAAKpartComposition(
   seqs,

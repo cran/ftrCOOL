@@ -1,4 +1,4 @@
-#' Z-SCALE
+#' Z-SCALE (zSCALE)
 #'
 #' This function converts the amino acids of a sequence to five physicochemical descriptor variables which were developed by Sandberg et al. in 1998.
 #' The Z-SCALE function can be applied to encode peptides of equal length.
@@ -23,7 +23,7 @@
 #'
 #' @return The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
 #' matrix for sequences with the same length such that the number of columns is (sequence length)*(5)
-#' and the number of rows is equal to the number of sequences. It is usable for machine learning purposes.
+#' and the number of rows is equal to the number of sequences.
 #' If the outFormat is 'txt', the output is written to a tab-delimited file.
 #'
 #' @export

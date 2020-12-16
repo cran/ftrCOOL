@@ -1,4 +1,4 @@
-#' Quasi Sequence Order
+#' Quasi Sequence Order (QSOrder)
 #'
 #' This function computes the quasi-sequence-order for sequences.
 #' It is for amino acid pairs with d distances (d can be any number between 1 and 20).
@@ -107,6 +107,7 @@ QSOrder<-function(seqs,nlag=25,W=0.1,label=c()){
     featureMatrix<-cbind(featureMatrix,label)
   }
   row.names(featureMatrix)<-names(seqs)
+
   return(featureMatrix)
 
 }

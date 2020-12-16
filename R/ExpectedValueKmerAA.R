@@ -1,4 +1,4 @@
-#' Expected Value for k-mers
+#' Expected Value for K-mer Amino Acid (ExpectedValueKmerAA)
 #'
 #' This function computes the expected value of each k-mer by dividing the frequency of the
 #' kmer to multiplying frequency of each amino acid of the k-mer in the sequence.

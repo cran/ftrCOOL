@@ -1,4 +1,4 @@
-#' CTDC(CTD Composition)
+#' CTD Composition (CTDC)
 #'
 #' This function computes the composition part of \link{CTD}. Thirteen properties are defined in this function. Each
 #' property categorizes the amino acids of the sequences into three groups. The grouped amino acid composition is calculated for each property.
@@ -16,7 +16,7 @@
 #' @param normalized is a logical parameter. When it is FALSE, the return value of the function does not change. Otherwise, the return value is normalized using the length of the sequence.
 #'
 #' @return This function returns a feature matrix.
-#' The number of rows is equal to the number of sequences and the number of columns is 3*13, where three is the number of groups and thirteen is the number of properties.
+#' The number of rows is equal to the number of sequences and the number of columns is 3*7, where three is the number of groups and thirteen is the number of properties.
 #'
 #'
 #' @export
@@ -51,19 +51,13 @@ CTDC<-function(seqs,normalized=FALSE,label=c()){
 
   numSeqs<-length(seqs)
 
-  ctdc<-matrix(0,ncol = 3*13,nrow = numSeqs)
-  tempname1<-paste0("P",rep(1:13,each=3))
-  tempname2<-paste0(".G",rep(1:3,13))
+  ctdc<-matrix(0,ncol = 3*7,nrow = numSeqs)
+  tempname1<-paste0("P",rep(1:7,each=3))
+  tempname2<-paste0(".G",rep(1:3,7))
   colnames(ctdc)<-paste0(tempname1,tempname2)
 
 
   group1<-list("hydrophobicity_PRAM900101"= c("R","K","E","D","Q","N"),
-               "hydrophobicity_ARGP820101"= c("Q","S","T","N","G","D","E"),
-               "hydrophobicity_ZIMJ680101"= c("Q","N","G","S","W","T","D","E","R","A"),
-               "hydrophobicity_PONP930101"= c("K","P","D","E","S","N","Q","T"),
-               "hydrophobicity_CASG920101"= c("K","D","E","Q","P","S","R","N","T","G"),
-               "hydrophobicity_ENGD860101"= c("R","D","K","E","N","Q","H","Y","P"),
-               "hydrophobicity_FASG890101"= c("K","E","R","S","Q","D"),
                "normwaalsvolume"= c("G","A","S","T","P","D","C"),
                "polarity"=        c("L","I","F","W","C","M","V","Y"),
                "polarizability"=  c("G","A","S","D","T"),
@@ -72,12 +66,6 @@ CTDC<-function(seqs,normalized=FALSE,label=c()){
                "solventaccess"=   c("A","L","F","C","G","I","V","W"))
 
   group2<-list("hydrophobicity_PRAM900101"= c("G","A","S","T","P","H","Y"),
-               "hydrophobicity_ARGP820101"= c("R","A","H","C","K","M","V"),
-               "hydrophobicity_ZIMJ680101"= c("H","M","C","K","V"),
-               "hydrophobicity_PONP930101"= c("G","R","H","A"),
-               "hydrophobicity_CASG920101"= c("A","H","Y","M","L","V"),
-               "hydrophobicity_ENGD860101"= c("S","G","T","A","W"),
-               "hydrophobicity_FASG890101"= c("N","T","P","G"),
                "normwaalsvolume"= c("N","V","E","Q","I","L"),
                "polarity"=        c("P","A","T","G","S"),
                "polarizability"=  c("C","P","N","V","E","Q","I","L"),
@@ -86,12 +74,6 @@ CTDC<-function(seqs,normalized=FALSE,label=c()){
                "solventaccess"=  c("R","K","Q","E","N","D"))
 
   group3<-list("hydrophobicity_PRAM900101"= c("C","L","V","I","M","F","W"),
-               "hydrophobicity_ARGP820101"= c("L","Y","P","F","I","W"),
-               "hydrophobicity_ZIMJ680101"= c("L","P","F","Y","I"),
-               "hydrophobicity_PONP930101"= c("Y","M","F","W","L","C","V","I"),
-               "hydrophobicity_CASG920101"= c("F","I","W","C"),
-               "hydrophobicity_ENGD860101"= c("C","V","L","I","M","F"),
-               "hydrophobicity_FASG890101"= c("A","Y","H","W","V","M","F","L","I","C"),
                "normwaalsvolume"= c("M","H","K","F","R","Y","W"),
                "polarity"=        c("H","Q","R","K","N","E","D"),
                "polarizability"=  c("K","M","H","F","R","Y","W"),
@@ -100,8 +82,7 @@ CTDC<-function(seqs,normalized=FALSE,label=c()){
                "solventaccess"=   c("M","S","P","T","H","Y"))
   groups<-list("grp1"=group1,"grp2"=group2,"grp3"=group3)
 
-  properties<-c("hydrophobicity_PRAM900101", "hydrophobicity_ARGP820101", "hydrophobicity_ZIMJ680101", "hydrophobicity_PONP930101",
-                "hydrophobicity_CASG920101", "hydrophobicity_ENGD860101", "hydrophobicity_FASG890101", "normwaalsvolume",
+  properties<-c("hydrophobicity_PRAM900101", "normwaalsvolume",
                 "polarity", "polarizability", "charge", "secondarystruct", "solventaccess")
 
 
@@ -135,6 +116,8 @@ CTDC<-function(seqs,normalized=FALSE,label=c()){
     ctdc<-ctdc/seqLen
   }
   row.names(ctdc)<-names(seqs)
+
+
   return(ctdc)
 
 

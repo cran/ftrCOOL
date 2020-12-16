@@ -2,7 +2,7 @@
 % Please edit documentation in R/CTDC.R
 \name{CTDC}
 \alias{CTDC}
-\title{CTDC(CTD Composition)}
+\title{CTD Composition (CTDC)}
 \usage{
 CTDC(seqs, normalized = FALSE, label = c())
 }
@@ -17,7 +17,7 @@ each entry (i.e., sequence).}
 }
 \value{
 This function returns a feature matrix.
-The number of rows is equal to the number of sequences and the number of columns is 3*13, where three is the number of groups and thirteen is the number of properties.
+The number of rows is equal to the number of sequences and the number of columns is 3*7, where three is the number of groups and thirteen is the number of properties.
 }
 \description{
 This function computes the composition part of \link{CTD}. Thirteen properties are defined in this function. Each

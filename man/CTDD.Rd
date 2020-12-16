@@ -2,7 +2,7 @@
 % Please edit documentation in R/CTDD.R
 \name{CTDD}
 \alias{CTDD}
-\title{CTDD(CTD Distribution)}
+\title{CTD Distribution (CTDD)}
 \usage{
 CTDD(seqs, label = c())
 }
@@ -14,7 +14,7 @@ with a '>' character. Also, seqs could be a string vector. Each element of the v
 each entry (i.e., sequence).}
 }
 \value{
-This function returns a feature matrix. The number of rows is equal to the number of sequences and the number of columns is 15*13.
+This function returns a feature matrix. The number of rows is equal to the number of sequences and the number of columns is 15*7.
 }
 \description{
 This function computes the distribution part of \link{CTD}. It calculates fifteen values for each property.

@@ -1,13 +1,13 @@
-#' reverseCompelement
+#' reverseCompelement (revComp)
 #'
 #' This function returns the reverse compelement of a dna sequence.
 #'
 #' @param seq is a dna sequence.
 #'
-#'@param outputType this parameter can take two values: 'char' or 'str'. If outputType is
+#' @param outputType this parameter can take two values: 'char' or 'str'. If outputType is
 #' 'str', the reverse complement sequence of the input sequence is returned as a string.
 #' Otherwise, a vector of characters which represent the reverse complement is returned.
-#' Default value is 'char'.
+#' Default value is 'str'.
 #'
 #'
 #'
@@ -24,7 +24,7 @@
 #' Seq<-ptmSeqsVect[1]
 #' revCompSeq<-revComp(seq=Seq,outputType="char")
 
-revComp<-function(seq,outputType="char")
+revComp<-function(seq,outputType="str")
 {
   if(outputType!="char"&&outputType!="str"){
     stop("ERROR: outputType should be 'char' or 'str' ")
@@ -39,7 +39,7 @@ revComp<-function(seq,outputType="char")
   revComp[temp2=="G"]="C"
 
   if(outputType=="str"){
-    revComp=paste0(revComp)
+    revComp=paste(revComp,collapse = "")
   }
 
   return(revComp)
