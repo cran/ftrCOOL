@@ -46,6 +46,9 @@
 #' fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
 #' ENUComposition_DNA(seqs = fileLNC,outFormat="txt",winSize=20
 #' ,outputFileDist=ad,overLap=FALSE)
+#'
+#'
+#' unlink("dir", recursive = TRUE)
 
 
 ENUComposition_DNA <- function(seqs,winSize=50,overLap=TRUE,label=c(),outFormat='mat',outputFileDist="")

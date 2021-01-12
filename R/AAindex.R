@@ -58,6 +58,7 @@
 #' AAindex(seqs = filePrs, selectedAAidx=1:5,standardized=TRUE,threshold=1,outFormat="txt"
 #' ,outputFileDist=ad)
 #'
+#' unlink("dir", recursive = TRUE)
 #'
 
 AAindex <- function(seqs,selectedAAidx=1:554,standardized=TRUE,threshold=1,label=c(),outFormat="mat",outputFileDist="")

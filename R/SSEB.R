@@ -39,6 +39,7 @@
 #' @export
 #'
 #' @examples
+#'
 #' dir = tempdir()
 #' ad<-paste0(dir,"/SSEB.txt")
 #'
@@ -46,6 +47,7 @@
 #' Predss2dir<-paste0(Predss2dir,"/ss2Dir/")
 #' mat<-SSEB(Predss2dir,binaryType="strBin",outFormat="txt",outputFileDist=ad)
 #'
+#' unlink("dir", recursive = TRUE)
 
 
 SSEB<-function(dirPath,binaryType="strBin",outFormat="mat",outputFileDist=""){

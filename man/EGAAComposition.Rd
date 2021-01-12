@@ -70,4 +70,6 @@ filePrs<-system.file("extdata/proteins.fasta",package="ftrCOOL")
 EGAAComposition(seqs = filePrs,winSize=20,Grp="cTriad",outFormat="txt"
 ,outputFileDist=ad)
 
+
+unlink("dir", recursive = TRUE)
 }

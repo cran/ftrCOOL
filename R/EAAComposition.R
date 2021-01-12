@@ -56,6 +56,8 @@
 #' EAAComposition(seqs = filePrs,winSize=50, overLap=FALSE,outFormat="txt"
 #' ,outputFileDist=ad)
 #'
+#' unlink("dir", recursive = TRUE)
+
 
 
 

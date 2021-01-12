@@ -56,6 +56,8 @@
 #' EGAAComposition(seqs = filePrs,winSize=20,Grp="cTriad",outFormat="txt"
 #' ,outputFileDist=ad)
 #'
+#'
+#' unlink("dir", recursive = TRUE)
 
 
 EGAAComposition <- function(seqs,winSize=50,overLap=TRUE,Grp="locFus",label=c(),outFormat="mat",outputFileDist="")

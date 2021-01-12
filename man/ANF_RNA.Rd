@@ -43,6 +43,7 @@ dir = tempdir()
 fileLNC<-system.file("extdata/Carica_papaya101RNA.txt",package="ftrCOOL")
 mat<-ANF_RNA(seqs = fileLNC,outFormat="mat")
 
+unlink("dir", recursive = TRUE)
 }
 \references{
 Chen, W., Tran, H., Liang, Z. et al. Identification and analysis of the N6-methyladenosine in the Saccharomyces cerevisiae transcriptome. Sci Rep 5, 13859 (2015).

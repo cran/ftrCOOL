@@ -60,4 +60,7 @@ ad<-paste0(dir,"/ENUCcompos.txt")
 fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
 ENUComposition_DNA(seqs = fileLNC,outFormat="txt",winSize=20
 ,outputFileDist=ad,overLap=FALSE)
+
+
+unlink("dir", recursive = TRUE)
 }

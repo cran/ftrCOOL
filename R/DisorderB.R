@@ -34,13 +34,14 @@
 #' @examples
 #'
 #' dir = tempdir()
-#' PredDisdir<-system.file("testForder",package="ftrCOOL")
 #'
+#' PredDisdir<-system.file("testForder",package="ftrCOOL")
 #' PredDisdir<-paste0(PredDisdir,"/Disdir/")
 #' ad1<-paste0(dir,"/disorderB.txt")
 #'
-#' mat<-DisorderB(PredDisdir,binaryType="strBin",outFormat="txt",outputFileDist=ad1)
+#' DisorderB(PredDisdir,binaryType="strBin",outFormat="txt",outputFileDist=ad1)
 #'
+#' unlink("dir", recursive = TRUE)
 #'
 DisorderB<-function(dirPath,binaryType="strBin",outFormat="mat",outputFileDist=""){
 
@@ -67,7 +68,7 @@ DisorderB<-function(dirPath,binaryType="strBin",outFormat="mat",outputFileDist="
         }
         return(simpleMatrix)
       }
-      else if(binaryType=="logicalBin"){
+      else if(binaryType=="logicBin"){
         nucs=list("D"=c(FALSE,TRUE),"O"=c(TRUE,FALSE))
 
         featureList<-lapply(disorderVectorSimple,function(x) {

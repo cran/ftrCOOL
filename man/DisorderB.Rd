@@ -45,12 +45,13 @@ is also usable for machine learning purposes.
 \examples{
 
 dir = tempdir()
-PredDisdir<-system.file("testForder",package="ftrCOOL")
 
+PredDisdir<-system.file("testForder",package="ftrCOOL")
 PredDisdir<-paste0(PredDisdir,"/Disdir/")
 ad1<-paste0(dir,"/disorderB.txt")
 
-mat<-DisorderB(PredDisdir,binaryType="strBin",outFormat="txt",outputFileDist=ad1)
+DisorderB(PredDisdir,binaryType="strBin",outFormat="txt",outputFileDist=ad1)
 
+unlink("dir", recursive = TRUE)
 
 }

@@ -69,5 +69,6 @@ filePrs<-system.file("extdata/proteins.fasta",package="ftrCOOL")
 AAindex(seqs = filePrs, selectedAAidx=1:5,standardized=TRUE,threshold=1,outFormat="txt"
 ,outputFileDist=ad)
 
+unlink("dir", recursive = TRUE)
 
 }

@@ -55,4 +55,6 @@ mat<-NUC2Binary_RNA(seqs = fileLNC,outFormat="mat")
 
 ad<-paste0(dir,"/NUC2Binary.txt")
 NUC2Binary_RNA(seqs = fileLNC,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+
+unlink("dir", recursive = TRUE)
 }

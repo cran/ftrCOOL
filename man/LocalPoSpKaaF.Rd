@@ -50,4 +50,6 @@ filePrs<-system.file("extdata/proteins.fasta",package="ftrCOOL")
 LocalPoSpKAAF(seqs = filePrs, k=1,outFormat="txt"
 ,outputFileDist=ad)
 
+unlink("dir", recursive = TRUE)
+
 }

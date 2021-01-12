@@ -37,8 +37,8 @@ ptmSeqsVect<-ptmSeqsVect[1:2]
 posSeqs<-as.vector(read.csv(paste0(ptmSeqsADR,"/poSeqPTM101.csv"))[,2])
 negSeqs<-as.vector(read.csv(paste0(ptmSeqsADR,"/negSeqPTM101.csv"))[,2])
 
-posSeqs<-posSeqs[1:5]
-negSeqs<-negSeqs[1:5]
+posSeqs<-posSeqs[1:3]
+negSeqs<-negSeqs[1:3]
 
 trainSeq<-c(posSeqs,negSeqs)
 

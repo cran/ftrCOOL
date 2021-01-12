@@ -40,6 +40,7 @@
 #' fileLNC<-system.file("extdata/Carica_papaya101RNA.txt",package="ftrCOOL")
 #' mat<-ANF_RNA(seqs = fileLNC,outFormat="mat")
 #'
+#' unlink("dir", recursive = TRUE)
 
 ANF_RNA<-function(seqs,outFormat="mat",outputFileDist="",label=c()){
 

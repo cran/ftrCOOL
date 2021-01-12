@@ -37,8 +37,9 @@
 #' PredDisdir<-paste0(PredDisdir,"/Disdir/")
 #' ad1<-paste0(dir,"/disorderS.txt")
 #'
-#' mat<-DisorderS(PredDisdir, outFormat="txt",outputFileDist=ad1)
+#' DisorderS(PredDisdir, outFormat="txt",outputFileDist=ad1)
 #'
+#' unlink("dir", recursive = TRUE)
 
 
 

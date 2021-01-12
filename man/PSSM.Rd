@@ -40,4 +40,6 @@ PSSMdir<-system.file("testForder",package="ftrCOOL")
 PSSMdir<-paste0(PSSMdir,"/PSSMdir/")
 mat<-PSSM(PSSMdir,outFormat="txt",outputFileDist=ad)
 
+
+unlink("dir", recursive = TRUE)
 }

@@ -43,6 +43,8 @@
 #' LocalPoSpKAAF(seqs = filePrs, k=1,outFormat="txt"
 #' ,outputFileDist=ad)
 #'
+#' unlink("dir", recursive = TRUE)
+#'
 
 LocalPoSpKAAF<-function(seqs,k=2,label=c(),outFormat="mat",outputFileDist=""){
 

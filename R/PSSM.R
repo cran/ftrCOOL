@@ -35,6 +35,9 @@
 #' PSSMdir<-paste0(PSSMdir,"/PSSMdir/")
 #' mat<-PSSM(PSSMdir,outFormat="txt",outputFileDist=ad)
 #'
+#'
+#' unlink("dir", recursive = TRUE)
+
 PSSM<-function(dirPath,outFormat="mat",outputFileDist=""){
 
   VectPSSM<-readPSSMdir(dirPath)

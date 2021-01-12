@@ -66,6 +66,7 @@ filePrs<-system.file("extdata/proteins.fasta",package="ftrCOOL")
 EAAComposition(seqs = filePrs,winSize=50, overLap=FALSE,outFormat="txt"
 ,outputFileDist=ad)
 
+unlink("dir", recursive = TRUE)
 }
 \references{
 Chen, Zhen, et al. "iFeature: a python package and web server for features extraction and selection from protein and peptide sequences." Bioinformatics 34.14 (2018): 2499-2502.

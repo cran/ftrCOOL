@@ -40,4 +40,5 @@ PredTorsioNdir<-system.file("testForder",package="ftrCOOL")
 PredTorsioNdir<-paste0(PredTorsioNdir,"/TorsioNdir/")
 mat<-TorsionAngle(PredTorsioNdir,outFormat="txt",outputFileDist=ad)
 
+unlink("dir", recursive = TRUE)
 }

@@ -44,6 +44,8 @@
 #' fileLNC<-system.file("extdata/Carica_papaya101RNA.txt",package="ftrCOOL")
 #' LocalPoSpKNUCF_RNA(seqs = fileLNC,k=1,outFormat="txt"
 #' ,outputFileDist=ad)
+#'
+#' unlink("dir", recursive = TRUE)
 
 LocalPoSpKNUCF_RNA<-function(seqs,k=2,label=c(),outFormat="mat",outputFileDist=""){
 

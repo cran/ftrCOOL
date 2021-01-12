@@ -45,6 +45,9 @@
 #' ad<-paste0(dir,"/ENUCcompos.txt")
 #' ENUComposition_RNA(seqs = fileLNC,outFormat="txt",winSize=20
 #' ,outputFileDist=ad,overLap=FALSE)
+#'
+#'
+#' unlink("dir", recursive = TRUE)
 
 
 ENUComposition_RNA <- function(seqs,winSize=50,overLap=TRUE,label=c(),outFormat='mat',outputFileDist="")

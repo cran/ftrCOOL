@@ -40,7 +40,7 @@
 #' PredASAdir<-paste0(PredASAdir,"/ASAdir/")
 #' ASA(PredASAdir,outFormat="txt",outputFileDist=ad)
 #'
-#'
+#' unlink("dir", recursive = TRUE)
 
 
 ASA<-function(dirPath,outFormat="mat",outputFileDist=""){

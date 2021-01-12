@@ -40,4 +40,5 @@ Predss2dir<-system.file("testForder",package="ftrCOOL")
 Predss2dir<-paste0(Predss2dir,"/ss2Dir/")
 mat<-SSES(Predss2dir,outFormat="txt",outputFileDist=ad)
 
+unlink("dir", recursive = TRUE)
 }

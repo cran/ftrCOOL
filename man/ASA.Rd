@@ -42,5 +42,5 @@ PredASAdir<-system.file("testForder",package="ftrCOOL")
 PredASAdir<-paste0(PredASAdir,"/ASAdir/")
 ASA(PredASAdir,outFormat="txt",outputFileDist=ad)
 
-
+unlink("dir", recursive = TRUE)
 }

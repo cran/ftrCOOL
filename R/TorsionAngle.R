@@ -34,6 +34,7 @@
 #' PredTorsioNdir<-paste0(PredTorsioNdir,"/TorsioNdir/")
 #' mat<-TorsionAngle(PredTorsioNdir,outFormat="txt",outputFileDist=ad)
 #'
+#' unlink("dir", recursive = TRUE)
 
 TorsionAngle<-function(dirPath,outFormat="mat",outputFileDist=""){
 

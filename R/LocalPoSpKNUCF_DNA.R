@@ -45,6 +45,8 @@
 #' fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
 #' LocalPoSpKNUCF_DNA(seqs = fileLNC,k=1,outFormat="txt"
 #' ,outputFileDist=ad)
+#'
+#' unlink("dir", recursive = TRUE)
 
 LocalPoSpKNUCF_DNA<-function(seqs,k=2,label=c(),outFormat="mat",outputFileDist=""){
 

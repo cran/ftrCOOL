@@ -57,4 +57,6 @@ mat<-NUC2Binary_DNA(seqs = LNC50Nuc,outFormat="mat")
 ad<-paste0(dir,"/NUC2Binary.txt")
 fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
 NUC2Binary_DNA(seqs = fileLNC,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+
+unlink("dir", recursive = TRUE)
 }

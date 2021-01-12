@@ -42,6 +42,7 @@ Warning: If the outFormat is set to 'mat' for sequences with different lengths, 
 It is noteworthy that 'txt' format is not usable for machine learning purposes.
 }
 \examples{
+
 dir = tempdir()
 ad<-paste0(dir,"/SSEB.txt")
 
@@ -49,4 +50,5 @@ Predss2dir<-system.file("testForder",package="ftrCOOL")
 Predss2dir<-paste0(Predss2dir,"/ss2Dir/")
 mat<-SSEB(Predss2dir,binaryType="strBin",outFormat="txt",outputFileDist=ad)
 
+unlink("dir", recursive = TRUE)
 }

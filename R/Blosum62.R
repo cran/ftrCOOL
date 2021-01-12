@@ -41,6 +41,9 @@
 #' vect<-BLOSUM62(seqs = filePr,outFormat="mat")
 #' BLOSUM62(seqs = filePrs,outFormat="txt",outputFileDist=ad)
 #'
+#' unlink("dir", recursive = TRUE)
+#'
+#'
 BLOSUM62<-function(seqs,label=c(),outFormat="mat",outputFileDist=""){
 
 

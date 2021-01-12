@@ -58,6 +58,8 @@ mat<-NCP_DNA(seqs = LNC50Nuc,binaryType="strBin",outFormat="mat")
 ad<-paste0(dir,"/NCP.txt")
 fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
 NCP_DNA(seqs = fileLNC,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+
+unlink("dir", recursive = TRUE)
 }
 \references{
 Chen, Zhen, et al. "iLearn: an integrated platform and meta-learner for feature engineering, machine-learning analysis and modeling of DNA, RNA and protein sequence data." Briefings in bioinformatics 21.3 (2020): 1047-1057.

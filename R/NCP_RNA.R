@@ -46,6 +46,7 @@
 #'
 #' ad<-paste0(dir,"/NCP.txt")
 #' NCP_RNA(seqs = fileLNC,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+#' unlink("dir", recursive = TRUE)
 
 NCP_RNA<-function(seqs,binaryType="strBin",outFormat="mat",outputFileDist="",label=c()){
 

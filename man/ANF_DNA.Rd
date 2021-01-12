@@ -44,6 +44,7 @@ LNCSeqsADR<-system.file("extdata/",package="ftrCOOL")
 LNC50Nuc<-as.vector(read.csv(paste0(LNCSeqsADR,"/LNC50Nuc.csv"))[,2])
 mat<-ANF_DNA(seqs = LNC50Nuc,outFormat="mat")
 
+unlink("dir", recursive = TRUE)
 
 }
 \references{
