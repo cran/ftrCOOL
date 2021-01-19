@@ -133,9 +133,7 @@ NCP_DNA<-function(seqs,binaryType="strBin",outFormat="mat",outputFileDist="",lab
     else{
       stop("ERROR! Choose one of 'strBin', 'logicBin', or 'numBin' for binaryFormat")
     }
-    ad<-system.file("extdata",package="ftrCOOL")
-    ad<-paste0(ad,"/ncp.csv")
-    write.csv(featureMatrix,file = ad)
+
   return(featureMatrix)
 
   } else if(outFormat=="txt"){
@@ -153,9 +151,6 @@ NCP_DNA<-function(seqs,binaryType="strBin",outFormat="mat",outputFileDist="",lab
       cods<-c(namecods,cods)
       temp<-paste(cods,collapse = "\t")
       write(temp,outputFileDist,append = TRUE)
-
-      #write(temp,"~/Desktop/list.txt",append = TRUE)
-      #return(cods)
     })
   }
   else {

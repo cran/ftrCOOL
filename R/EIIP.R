@@ -99,9 +99,7 @@ if(outFormat=="mat"){
     featureMatrix<-cbind(featureMatrix,label)
   }
   row.names(featureMatrix)<-names(seqs)
-  ad<-system.file("extdata",package="ftrCOOL")
-  ad<-paste0(ad,"/eiip.csv")
-  write.csv(featureMatrix,file = ad)
+
   return(featureMatrix)
 }
   else{

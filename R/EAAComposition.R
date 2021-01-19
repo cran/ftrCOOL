@@ -59,9 +59,6 @@
 #' unlink("dir", recursive = TRUE)
 
 
-
-
-
 EAAComposition <- function(seqs,winSize=50,overLap=TRUE,label=c(),outFormat='mat',outputFileDist="")
 {
 

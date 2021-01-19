@@ -22,7 +22,8 @@ readPSSMdir<-function(dirPath){
   f=list.files(dirPath)
   fpath<-paste0(dirPath,f)
   listPredVect<-list()
-  ad<-system.file("extdata",package="ftrCOOL")
+  #ad<-system.file("extdata",package="ftrCOOL")
+  ad=tempdir()
   ad<-paste0(ad,"/tempTable.txt")
   for(i in 1:length(fpath)){
     text<-readLines(fpath[i])
