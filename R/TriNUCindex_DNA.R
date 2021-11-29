@@ -29,7 +29,7 @@
 #' @param outputFileDist shows the path and name of the 'txt' output file.
 #'
 #' @return The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
-#' matrix for sequences with the same length such that the number of columns is (sequence length)*(number of selected trinucleotide properties)
+#' matrix for sequences with the same length such that the number of columns is (sequence length-2)*(number of selected trinucleotide properties)
 #' and the number of rows is equal to the number of sequences.
 #' If the outFormat is 'txt', the output is written to a tab-delimited file.
 #'

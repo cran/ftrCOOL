@@ -17,9 +17,9 @@
 #' with '>'. Also, seqs could be a string vector. Each element of the vector is a ribonucleotide sequence.
 #'
 #' @param binaryType It can take any of the following values: ('strBin','logicBin','numBin').
-#' 'strBin'(String binary): each nucleotide is represented by a string containing 4 characters(0-1). A = "0001" , C = "0010" , G = "0100" , T = "1000"
-#' 'logicBin'(logical value): Each nucleotide is represented by a vector containing 4 logical entries. A = c(F,F,F,T) , ... , T = c(T,F,F,F)
-#' 'numBin' (numeric bin): Each nucleotide is represented by a numeric (i.e., integer) vector containing 4 numerals. A = c(0,0,0,1) , ... , T = c(1,0,0,0)
+#' 'strBin'(String binary): each ribonucleotide is represented by a string containing 4 characters(0-1). A = "0001" , C = "0010" , G = "0100" , T = "1000"
+#' 'logicBin'(logical value): Each ribonucleotide is represented by a vector containing 4 logical entries. A = c(F,F,F,T) , ... , T = c(T,F,F,F)
+#' 'numBin' (numeric bin): Each ribonucleotide is represented by a numeric (i.e., integer) vector containing 4 numerals. A = c(0,0,0,1) , ... , T = c(1,0,0,0)
 #'
 #' @param outFormat (output format) can take two values: 'mat'(matrix) and 'txt'. The default value is 'mat'.
 #'
@@ -45,10 +45,10 @@
 #' mat<-NCP_RNA(seqs = fileLNC,binaryType="strBin",outFormat="mat")
 #'
 #' ad<-paste0(dir,"/NCP.txt")
-#' NCP_RNA(seqs = fileLNC,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+#' NCP_RNA(seqs = fileLNC,binaryType="numBin",outFormat="txt",outputFileDist=ad)
 #' unlink("dir", recursive = TRUE)
 
-NCP_RNA<-function(seqs,binaryType="strBin",outFormat="mat",outputFileDist="",label=c()){
+NCP_RNA<-function(seqs,binaryType="numBin",outFormat="mat",outputFileDist="",label=c()){
 
 
   if(length(seqs)==1&&file.exists(seqs)){

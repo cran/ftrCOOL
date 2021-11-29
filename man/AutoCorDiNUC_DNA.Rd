@@ -21,7 +21,7 @@ with '>'. Also, seqs could be a string vector. Each element of the vector is a n
 or indices in the DI_DNA file. This parameter could be a vector or a list of dinucleotide indices.
 The default value of this parameter is a vector with ("Rise", "Roll", "Shift", "Slide", "Tilt", "Twist") ids.}
 
-\item{maxlag}{This parameter shows the maximum gap between two amino acids. The gaps change from 1 to maxlag (the maximum lag).}
+\item{maxlag}{This parameter shows the maximum gap between two dinucleotide pairs. The gaps change from 1 to maxlag (the maximum lag).}
 
 \item{threshold}{is a number between (0 to 1]. In selectedIdx, indices with a correlation higher than the threshold will be deleted.The default value is 1.}
 
@@ -51,8 +51,6 @@ the binary combination will be calculated for all the physicochemical properties
 \examples{
 
 fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
-mat1<-AutoCorDiNUC_DNA(seqs=fileLNC,selectedIdx=c(1:7)
-,maxlag=20,type=c("Moran","Geary"))
 
 mat2<-AutoCorDiNUC_DNA(seqs=fileLNC,selectedIdx=list(10,c(1,3),6:13,c(2:7))
 ,maxlag=15,type="CC")

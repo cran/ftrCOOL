@@ -23,7 +23,7 @@
 #' The default value of this parameter is a vector with ("Rise", "Roll", "Shift", "Slide", "Tilt", "Twist") ids.
 #'
 #'
-#' @param maxlag This parameter shows the maximum gap between two amino acids. The gaps change from 1 to maxlag (the maximum lag).
+#' @param maxlag This parameter shows the maximum gap between two dinucleotide pairs. The gaps change from 1 to maxlag (the maximum lag).
 #'
 #' @param type could be 'Moran', 'Greay', 'NormalizeMBorto', 'AC', 'CC', or 'ACC'. Also, it could be any combination of them.
 #'
@@ -41,8 +41,6 @@
 #' @examples
 #'
 #' fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
-#' mat1<-AutoCorDiNUC_DNA(seqs=fileLNC,selectedIdx=c(1:7)
-#' ,maxlag=20,type=c("Moran","Geary"))
 #'
 #' mat2<-AutoCorDiNUC_DNA(seqs=fileLNC,selectedIdx=list(10,c(1,3),6:13,c(2:7))
 #' ,maxlag=15,type="CC")
@@ -176,7 +174,7 @@ AutoCorDiNUC_DNA<-function(seqs,selectedIdx=c("Rise", "Roll", "Shift", "Slide", 
 
 
 
-  ## average all amino acids in seq for each property
+  ## average all dinucleotides in seq for each property
   ##is a vector with length property number
   Pprim <- matrix(0, ncol = numAAidx,nrow = numSeqs)
 

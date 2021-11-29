@@ -33,8 +33,7 @@ DDE <-function(seqs,label=c())
 
     seqs<-seqs_Lab[[1]]
     label<-seqs_Lab[[2]]
-  }
-  else if(is.vector(seqs)){
+  } else if(is.vector(seqs)){
     seqs<-sapply(seqs,toupper)
 
     seqs_Lab<-alphabetCheck(seqs,alphabet = "aa",label)

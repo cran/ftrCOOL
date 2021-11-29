@@ -30,12 +30,16 @@
 #' ptmSeqsADR<-system.file("extdata/",package="ftrCOOL")
 #' ptmSeqsVect<-as.vector(read.csv(paste0(ptmSeqsADR,"/ptmVect101AA.csv"))[,2])
 #' ptmSeqsVect<-ptmSeqsVect[1:2]
+#' ptmSeqsVect<-sapply(ptmSeqsVect,function(seq){substr(seq,1,31)})
 #'
 #' posSeqs<-as.vector(read.csv(paste0(ptmSeqsADR,"/poSeqPTM101.csv"))[,2])
 #' negSeqs<-as.vector(read.csv(paste0(ptmSeqsADR,"/negSeqPTM101.csv"))[,2])
 #'
 #' posSeqs<-posSeqs[1:3]
 #' negSeqs<-negSeqs[1:3]
+#'
+#' posSeqs<-sapply(posSeqs,function(seq){substr(seq,1,31)})
+#' negSeqs<-sapply(negSeqs,function(seq){substr(seq,1,31)})
 #'
 #' trainSeq<-c(posSeqs,negSeqs)
 #'
@@ -44,7 +48,7 @@
 #'
 #' labeltr<-c(labelPos,labelNeg)
 #'
-#' KNNProtein(seqs=ptmSeqsVect,trainSeq=trainSeq,percent=10,labeltr=labeltr)
+#' mat<-KNNProtein(seqs=ptmSeqsVect,trainSeq=trainSeq,percent=5,labeltr=labeltr)
 
 
 

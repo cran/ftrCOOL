@@ -7,17 +7,16 @@
 PSTNPds(seqs, pos, neg, label = c())
 }
 \arguments{
-\item{seqs}{is a FASTA file containing ribonucleotide sequences. The sequences start
-with '>'. Also, seqs could be a string vector. Each element of the vector is a ribonucleotide sequence.}
+\item{seqs}{is a FASTA file containing nucleotide sequences. The sequences start
+with '>'. Also, seqs could be a string vector. Each element of the vector is a nucleotide sequence.}
 
-\item{pos}{is a fasta file containing amino acid sequences. Each sequence starts
+\item{pos}{is a fasta file containing nucleotide sequences. Each sequence starts
 with '>'. Also, the value of this parameter can be a string vector.
-Each element of the vector is a peptide/protein sequence.
-The sequences are positive sequences in the training model}
+The sequences are positive sequences in the training model.}
 
-\item{neg}{is a fasta file containing amino acid sequences. Each sequence starts
+\item{neg}{is a fasta file containing nucleotide sequences. Each sequence starts
 with '>'. Also, the value of this parameter can be a string vector.
-Each element of the vector is a peptide/protein sequence.}
+The sequences are negative sequences in the training model.}
 
 \item{label}{is an optional parameter. It is a vector whose length is equal to the number of sequences.
 It shows the class of each entry (i.e., sequence).}

@@ -6,7 +6,7 @@
 \usage{
 DiNUC2Binary_DNA(
   seqs,
-  binaryType = "strBin",
+  binaryType = "numBin",
   outFormat = "mat",
   outputFileDist = "",
   label = c()
@@ -18,8 +18,8 @@ with '>'. Also, seqs could be a string vector. Each element of the vector is a n
 
 \item{binaryType}{It can take any of the following values: ('strBin','logicBin','numBin').
 'strBin' (String binary): each dinucleotide is represented by a string containing 4 characters(0-1). For example, AA = "0000"   AC="0001"   ...  TT="1111"
-'logicBin' (logical value): Each amino acid is represented by a vector containing 4 logical entries. For example, AA = c(F,F,F,F)   AC=c(F,F,F,T)  ...    TT=c(T,T,T,T)
-'numBin' (numeric bin): Each amino acid is represented by a numeric (i.e., integer) vector containing 4 numeric entries. For example, AA = c(0,0,0,0)   AC = c(0,0,0,1)  ...  TT = c(1,1,1,1)}
+'logicBin' (logical value): Each dinucleotide is represented by a vector containing 4 logical entries. For example, AA = c(F,F,F,F)   AC=c(F,F,F,T)  ...    TT=c(T,T,T,T)
+'numBin' (numeric bin): Each dinucleotide is represented by a numeric (i.e., integer) vector containing 4 numeric entries. For example, AA = c(0,0,0,0)   AC = c(0,0,0,1)  ...  TT = c(1,1,1,1)}
 
 \item{outFormat}{(output format) can take two values: 'mat'(matrix) and 'txt'. The default value is 'mat'.}
 
@@ -52,6 +52,6 @@ is also usable for machine learning purposes.
 
 LNCSeqsADR<-system.file("extdata/",package="ftrCOOL")
 LNC50Nuc<-as.vector(read.csv(paste0(LNCSeqsADR,"/LNC50Nuc.csv"))[,2])
-mat<-DiNUC2Binary_DNA(seqs = LNC50Nuc, binaryType="strBin",outFormat="mat")
+mat<-DiNUC2Binary_DNA(seqs = LNC50Nuc, binaryType="numBin",outFormat="mat")
 
 }

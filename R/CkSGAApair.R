@@ -19,7 +19,7 @@
 #'
 #'
 #' @param upto It is a logical parameter. The default value is FALSE. If rng is a number and upto is set to TRUE, rng is converted
-#' to a vector with values from [0 to rng].
+#' to a vector with values from [1 to rng].
 #'
 #' @param normalized is a logical parameter. When it is FALSE, the return value of the function does not change. Otherwise, the return value is normalized using the length of the sequence.
 #'
@@ -85,7 +85,7 @@ CkSGAApair <- function(seqs,rng=3,upto=FALSE,normalized=TRUE,Grp="locFus",label=
   grps<-unlist(Group)
   unqGrps<-unique(grps)
   if(!all(grps %in% DictAA)==TRUE){
-   stop("ERROR: There is an unknown amino acid in Grp")
+    stop("ERROR: There is an unknown amino acid in Grp")
   }
   if (length(grps)!=length(unqGrps)){
     stop("ERROR: There is a duplicated amino acid in Grp")
@@ -103,8 +103,8 @@ CkSGAApair <- function(seqs,rng=3,upto=FALSE,normalized=TRUE,Grp="locFus",label=
 
     seqs<-seqs_Lab[[1]]
     label<-seqs_Lab[[2]]
-  }
-  else if(is.vector(seqs)){
+
+  }else if(is.vector(seqs)){
     seqs<-sapply(seqs,toupper)
 
     seqs_Lab<-alphabetCheck(seqs,alphabet = "aa",label)
@@ -112,9 +112,8 @@ CkSGAApair <- function(seqs,rng=3,upto=FALSE,normalized=TRUE,Grp="locFus",label=
     seqs<-seqs_Lab[[1]]
     label<-seqs_Lab[[2]]
 
-  }else {
-    stop("ERROR: Input sequence is not in the correct format. It should be a FASTA file or a string vector.")
-    }
+  } else {
+    stop("ERROR: Input sequence is not in the correct format. It should be a FASTA file or a string vector.")}
 
 
   numSeqs=length(seqs)
@@ -145,10 +144,34 @@ CkSGAApair <- function(seqs,rng=3,upto=FALSE,normalized=TRUE,Grp="locFus",label=
   rng <- sort(rng)
   len<-length(rng)
 
-  featureMatrix <- matrix(0 , ncol = len*((numGrp)^2),nrow = numSeqs)
+
   dipep<-nameKmer(k=2,type = "num",numGrp)
 
-  #seprate dipeptides by a space
+
+
+  seqChars<-lapply(seqs,function(seq){unlist(strsplit(seq,split = ""))})
+  GrpSeqs<-lapply(seqChars,function(seq){aa[seq]})
+  lenSeqs<-lapply(seqs,nchar)
+
+  featureMatrix<-c()
+
+  numcol=numGrp^2
+
+  for(i in 1:len){
+    tempMat<-matrix(0,nrow = numSeqs,ncol = numcol)
+    colnames(tempMat)<-dipep
+    for(n in 1:numSeqs)
+    {
+      temp1<-GrpSeqs[[n]][1:(lenSeqs[[n]]-rng[i]-1)]
+      temp2<-GrpSeqs[[n]][((rng[i]+1)+1):(lenSeqs[[n]])]
+      kmers<-paste(temp1,temp2,sep = "")
+      tbkmers<-table(kmers)
+      tempMat[n,names(tbkmers)]<-tbkmers
+    }
+    featureMatrix<-cbind(featureMatrix,tempMat)
+
+  }
+
   for(i in 1:length(dipep)){
     ditemp<-unlist(strsplit(dipep[i],split = ""))
     dipep[i]<-paste(ditemp[1],ditemp[2])
@@ -164,32 +187,9 @@ CkSGAApair <- function(seqs,rng=3,upto=FALSE,normalized=TRUE,Grp="locFus",label=
   colnames(featureMatrix)<-featName
 
 
-
-  for(n in 1:numSeqs){
-    seq<-seqs[n]
-    seqChars<-unlist(strsplit(seq,split = ""))
-    GrpSeq<-aa[seqChars]
-    lenSeq<-length(GrpSeq)
-
-    for(i in 1:len){
-      temp1<-GrpSeq[1:(lenSeq-rng[i]-1)]
-      temp2<-GrpSeq[((rng[i]+1)+1):(lenSeq)]
-      kmers<-paste(temp1,temp2,sep = "")
-      tbkmers<-table(kmers)
-      nmtbkmers<-names(tbkmers)
-      for(j in 1:length(tbkmers)){
-        tmp<-unlist(strsplit(nmtbkmers[j],split = ""))
-        index<-(as.numeric(tmp[1])-1)*numGrp+as.numeric(tmp[2])
-        index<-index+((i-1)*(numGrp^2))
-        featureMatrix[n,index]<-tbkmers[j]
-      }
-    }
-
-  }
-
   if(normalized==TRUE){
     seqLen<-sapply(seqs, nchar)
-    featureMatrix<-featureMatrix/seqLen
+    featureMatrix<-featureMatrix/(seqLen)
   }
   if(length(label)==numSeqs){
     featureMatrix<-as.data.frame(featureMatrix)

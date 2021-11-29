@@ -15,14 +15,14 @@ DiNUCindex_RNA(
 )
 }
 \arguments{
-\item{seqs}{is a FASTA file containing nucleotide sequences. The sequences start
-with '>'. Also, seqs could be a string vector. Each element of the vector is a nucleotide sequence.}
+\item{seqs}{is a FASTA file containing ribonucleotide sequences. The sequences start
+with '>'. Also, seqs could be a string vector. Each element of the vector is a ribonucleotide sequence.}
 
 \item{selectedIdx}{DiNucIndex function works based on physicochemical properties. Users, select the properties by their ids
 or indexes in DI_RNA file.
 The default value of this parameter is a vector with ("Rise (RNA)", "Roll (RNA)", "Shift (RNA)", "Slide (RNA)", "Tilt (RNA)","Twist (RNA)") entries.}
 
-\item{threshold}{is a number between (0 , 1]. In selectedAAidx, indices with a correlation
+\item{threshold}{is a number between (0 , 1]. In selectedIdx, indices with a correlation
 higher than the threshold will be deleted. The default value is 1.}
 
 \item{label}{is an optional parameter. It is a vector whose length is equivalent to the number of sequences. It shows the class of
@@ -34,15 +34,15 @@ each entry (i.e., sequence).}
 }
 \value{
 The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
-matrix for sequences with the same length such that the number of columns is (sequence length-1)*(number of selected di-nucleotide indexes)
+matrix for sequences with the same length such that the number of columns is (sequence length-1)*(number of selected di-ribonucleotide indexes)
 and the number of rows is equal to the number of sequences.
 If the outFormat is 'txt', the output is written to a tab-delimited file.
 }
 \description{
-This function replaces di ribonucleotides in a sequence with their physicochemical properties in the dinucleotide index file.
+This function replaces di-ribonucleotides in a sequence with their physicochemical properties in the di-ribonucleotide index file.
 }
 \details{
-There are 22 physicochemical indexes in the dinucleotide database.
+There are 22 physicochemical indexes in the di-ribonucleotide database.
 }
 \note{
 This function is provided for sequences with the same lengths.

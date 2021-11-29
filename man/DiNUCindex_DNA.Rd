@@ -21,7 +21,7 @@ with '>'. Also, seqs could be a string vector. Each element of the vector is a n
 or indexes in DI_DNA index file.
 The default value of this parameter is a vector with ("Rise", "Roll", "Shift", "Slide", "Tilt", "Twist") entries.}
 
-\item{threshold}{is a number between (0 , 1]. In selectedAAidx, indices with a correlation
+\item{threshold}{is a number between (0 , 1]. In selectedIdx, indices with a correlation
 higher than the threshold will be deleted. The default value is 1.}
 
 \item{label}{is an optional parameter. It is a vector whose length is equivalent to the number of sequences. It shows the class of

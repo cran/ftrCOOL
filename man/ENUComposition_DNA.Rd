@@ -21,7 +21,7 @@ with '>'. Also, seqs could be a string vector. Each element of the vector is a n
 
 \item{overLap}{This parameter shows how the window
 moves on the sequence. If the overlap is set to TRUE, the next window would have distance 1 with
-the previous window. Otherwise, the next window will start from the next amino acid after the previous window.
+the previous window. Otherwise, the next window will start from the next nucleotide after the previous window.
 There is no overlap between the next and previous windows.}
 
 \item{label}{is an optional parameter. It is a vector whose length is equivalent to the number of sequences. It shows the class of

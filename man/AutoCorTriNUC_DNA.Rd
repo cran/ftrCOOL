@@ -21,7 +21,7 @@ with '>'. Also, seqs could be a string vector. Each element of the vector is a n
 or indices in the TRI_DNA file. This parameter could be a vector or a list of trinucleotide indices.
 The default value of this parameter is a vector with  ("Dnase I", "Bendability (DNAse)") ids.}
 
-\item{maxlag}{This parameter shows the maximum gap between two amino acids. The gaps change from 1 to maxlag (the maximum lag).}
+\item{maxlag}{This parameter shows the maximum gap between two tri-nucleotide pairs. The gaps change from 1 to maxlag (the maximum lag).}
 
 \item{threshold}{is a number between (0 to 1]. In selectedNucIdx, indices with a correlation higher than the threshold will be deleted.The default value is 1.}
 

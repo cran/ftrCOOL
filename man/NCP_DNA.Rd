@@ -6,7 +6,7 @@
 \usage{
 NCP_DNA(
   seqs,
-  binaryType = "strBin",
+  binaryType = "numBin",
   outFormat = "mat",
   outputFileDist = "",
   label = c()
@@ -57,7 +57,7 @@ mat<-NCP_DNA(seqs = LNC50Nuc,binaryType="strBin",outFormat="mat")
 
 ad<-paste0(dir,"/NCP.txt")
 fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
-NCP_DNA(seqs = fileLNC,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+NCP_DNA(seqs = fileLNC,binaryType="numBin",outFormat="txt",outputFileDist=ad)
 
 unlink("dir", recursive = TRUE)
 }

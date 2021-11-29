@@ -121,11 +121,10 @@ CkSNUCpair_DNA <- function(seqs,rng=3,upto=FALSE,ORF=FALSE,reverseORF=TRUE,norma
       nmtbkmers<-names(tbkmers)
 
 
-      ((len-1)*16)+1:len*16
       tempvect<-vector(mode = "numeric",length = 16)
       names(tempvect)<-tempname
       tempvect[nmtbkmers]<-tbkmers
-      featureMatrix[n,(((len-1)*16)+1):(len*16)]<-tempvect
+      featureMatrix[n,(((i-1)*16)+1):(i*16)]<-tempvect
     }
 
   }

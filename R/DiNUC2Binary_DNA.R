@@ -7,8 +7,8 @@
 #'
 #' @param binaryType It can take any of the following values: ('strBin','logicBin','numBin').
 #' 'strBin' (String binary): each dinucleotide is represented by a string containing 4 characters(0-1). For example, AA = "0000"   AC="0001"   ...  TT="1111"
-#' 'logicBin' (logical value): Each amino acid is represented by a vector containing 4 logical entries. For example, AA = c(F,F,F,F)   AC=c(F,F,F,T)  ...    TT=c(T,T,T,T)
-#' 'numBin' (numeric bin): Each amino acid is represented by a numeric (i.e., integer) vector containing 4 numeric entries. For example, AA = c(0,0,0,0)   AC = c(0,0,0,1)  ...  TT = c(1,1,1,1)
+#' 'logicBin' (logical value): Each dinucleotide is represented by a vector containing 4 logical entries. For example, AA = c(F,F,F,F)   AC=c(F,F,F,T)  ...    TT=c(T,T,T,T)
+#' 'numBin' (numeric bin): Each dinucleotide is represented by a numeric (i.e., integer) vector containing 4 numeric entries. For example, AA = c(0,0,0,0)   AC = c(0,0,0,1)  ...  TT = c(1,1,1,1)
 #'
 #' @note This function is provided for sequences with the same lengths.
 #' Users can use 'txt' option in outFormat for sequences with different lengths.
@@ -44,10 +44,10 @@
 #'
 #' LNCSeqsADR<-system.file("extdata/",package="ftrCOOL")
 #' LNC50Nuc<-as.vector(read.csv(paste0(LNCSeqsADR,"/LNC50Nuc.csv"))[,2])
-#' mat<-DiNUC2Binary_DNA(seqs = LNC50Nuc, binaryType="strBin",outFormat="mat")
+#' mat<-DiNUC2Binary_DNA(seqs = LNC50Nuc, binaryType="numBin",outFormat="mat")
 #'
 
-DiNUC2Binary_DNA<-function(seqs,binaryType="strBin",outFormat="mat",outputFileDist="",label=c()){
+DiNUC2Binary_DNA<-function(seqs,binaryType="numBin",outFormat="mat",outputFileDist="",label=c()){
 
   dict<-list("A"=1,"C"=2,"G"=3,"T"=4)
   nuc<-names(unlist(dict))
@@ -116,15 +116,14 @@ DiNUC2Binary_DNA<-function(seqs,binaryType="strBin",outFormat="mat",outputFileDi
 
       for(n in 1:numSeqs){
         seq<-seqs[n]
-        charSeq<-unlist(strsplit(seq,split = ""))
+        chars<-unlist(strsplit(seq,split = ""))
         temp1<-chars[1:len]
         temp2<-chars[2:(len+1)]
         dimer<-paste0(temp1,temp2)
         bin<-BinaryDiVect[dimer]
         str<-paste(bin,collapse = '')
         strL<-unlist(strsplit(str,split = ''))
-        pos<-gregexpr("1",strL)
-        featureMatrix[n,pos]<-TRUE
+        featureMatrix[n,]<-as.logical(as.numeric(strL))
       }
       colnames(featureMatrix)<-paste("pos:",rep(1:len,each=4),"-",rep(nuc,len))
 
@@ -134,7 +133,7 @@ DiNUC2Binary_DNA<-function(seqs,binaryType="strBin",outFormat="mat",outputFileDi
 
       for(n in 1:numSeqs){
         seq<-seqs[n]
-        charSeq<-unlist(strsplit(seq,split = ""))
+        chars<-unlist(strsplit(seq,split = ""))
         temp1<-chars[1:len]
         temp2<-chars[2:(len+1)]
         dimer<-paste0(temp1,temp2)
@@ -142,9 +141,9 @@ DiNUC2Binary_DNA<-function(seqs,binaryType="strBin",outFormat="mat",outputFileDi
         bin<-BinaryDiVect[dimer]
         str<-paste(bin,collapse = '')
         strL<-unlist(strsplit(str,split = ''))
-        pos<-gregexpr("1",strL)
 
-        featureMatrix[n,pos]<-1
+
+        featureMatrix[n,]<-as.numeric(strL)
       }
       colnames(featureMatrix)<-paste("pos:",rep(1:len,each=4),"-",rep(nuc,len))
 

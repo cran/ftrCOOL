@@ -22,7 +22,7 @@ with a '>' character. Also, seqs could be a string vector. Each element of the v
 The default values of the vector are the hydrophobicity ids and hydrophilicity ids and Mass of residual
 in the amino acid index file.}
 
-\item{lambda}{is a tuning parameter. Its value indicates the maximum number of spaces between di-nucleotide pairs. The number
+\item{lambda}{is a tuning parameter. Its value indicates the maximum number of spaces between amino acid pairs. The number
 changes from 1 to lambda.}
 
 \item{w}{(weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.05.}

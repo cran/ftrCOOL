@@ -45,12 +45,12 @@
 #'
 #' Predss2dir<-system.file("testForder",package="ftrCOOL")
 #' Predss2dir<-paste0(Predss2dir,"/ss2Dir/")
-#' mat<-SSEB(Predss2dir,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+#' mat<-SSEB(Predss2dir,binaryType="numBin",outFormat="txt",outputFileDist=ad)
 #'
 #' unlink("dir", recursive = TRUE)
 
 
-SSEB<-function(dirPath,binaryType="strBin",outFormat="mat",outputFileDist=""){
+SSEB<-function(dirPath,binaryType="numBin",outFormat="mat",outputFileDist=""){
 
   ssVectorSimple<-readss2Dir(dirPath)
   lens<-lapply(ssVectorSimple, length)

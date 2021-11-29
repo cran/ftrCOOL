@@ -15,7 +15,7 @@
 #'
 #'
 #' @param trainSeq is a fasta file with amino acids sequences. Each sequence starts
-#' with a '>' character. Also it could be a string vector such that each element is a protein sequence. Eaxh sequence in the training set
+#' with a '>' character. Also it could be a string vector such that each element is a peptide sequence. Eaxh sequence in the training set
 #' is associated with a label. The label is found in the parameret labeltr.
 #'
 #' @param labeltr This parameter is a vector whose length is equivalent to the number of sequences in the training set. It shows class of

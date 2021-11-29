@@ -6,7 +6,7 @@
 \usage{
 DiNUC2Binary_RNA(
   seqs,
-  binaryType = "strBin",
+  binaryType = "numBin",
   outFormat = "mat",
   outputFileDist = "",
   label = c()
@@ -18,8 +18,8 @@ with '>'. Also, seqs could be a string vector. Each element of the vector is a r
 
 \item{binaryType}{It can take any of the following values: ('strBin','logicBin','numBin').
 'strBin' (String binary): each di-ribonucleotide is represented by a string containing 4 characters(0-1). For example, AA = "0000"   AC="0001"   ...  TT="1111"
-'logicBin' (logical value): Each amino acid is represented by a vector containing 4 logical entries. For example, AA = c(F,F,F,F)   AC=c(F,F,F,T)  ...    TT=c(T,T,T,T)
-'numBin' (numeric bin): Each amino acid is represented by a numeric (i.e., integer) vector containing 4 numeric entries. For example, AA = c(0,0,0,0)   AC = c(0,0,0,1)  ...  TT = c(1,1,1,1)}
+'logicBin' (logical value): Each di-ribonucleotide is represented by a vector containing 4 logical entries. For example, AA = c(F,F,F,F)   AC=c(F,F,F,T)  ...    TT=c(T,T,T,T)
+'numBin' (numeric bin): Each di-ribonucleotide is represented by a numeric (i.e., integer) vector containing 4 numeric entries. For example, AA = c(0,0,0,0)   AC = c(0,0,0,1)  ...  TT = c(1,1,1,1)}
 
 \item{outFormat}{(output format) can take two values: 'mat'(matrix) and 'txt'. The default value is 'mat'.}
 
@@ -51,6 +51,6 @@ is also usable for machine learning purposes.
 \examples{
 
 fileLNC<-system.file("extdata/Carica_papaya101RNA.txt",package="ftrCOOL")
-mat<-DiNUC2Binary_RNA(seqs = fileLNC, binaryType="strBin",outFormat="mat")
+mat<-DiNUC2Binary_RNA(seqs = fileLNC, binaryType="numBin",outFormat="mat")
 
 }

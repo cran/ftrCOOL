@@ -48,11 +48,11 @@
 #'
 #' ad<-paste0(dir,"/NCP.txt")
 #' fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
-#' NCP_DNA(seqs = fileLNC,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+#' NCP_DNA(seqs = fileLNC,binaryType="numBin",outFormat="txt",outputFileDist=ad)
 #'
 #' unlink("dir", recursive = TRUE)
 
-NCP_DNA<-function(seqs,binaryType="strBin",outFormat="mat",outputFileDist="",label=c()){
+NCP_DNA<-function(seqs,binaryType="numBin",outFormat="mat",outputFileDist="",label=c()){
 
 
   if(length(seqs)==1&&file.exists(seqs)){

@@ -7,7 +7,7 @@
 #'
 #'
 #' @param rng This parameter can be a number or a vector. Each entry of the vector holds the value of k in the k-mer composition.
-#' For each k in the rng vector, a new vector (whose size is 20^k) is created which contains the frequency of kmers.
+#' For each k in the rng vector, a new vector (whose size is 4^k) is created which contains the frequency of kmers.
 #'
 #' @param upto It is a logical parameter. The default value is FALSE. If rng is a number and upto is set to TRUE, rng is converted
 #' to a vector with values from 1 to rng.
@@ -65,7 +65,7 @@ kNUComposition_DNA<-function(seqs,rng=3,reverse=FALSE,upto=FALSE,normalized=TRUE
   if(upto==TRUE && length(rng)==1){
     l<-length(rng)
     l<-rng[l]
-    rng<-0:l
+    rng<-1:l
   }
   rng <- sort(rng)
   rng <- unique(rng)

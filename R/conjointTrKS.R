@@ -15,7 +15,7 @@
 #'
 #' @param rng This parameter can be a number or a vector. Each element of the vector shows the number of spaces between the first and the second amino acids
 #' and the second and the third amino acids of the tripeptide.
-#' For each k in the rng vector, a new vector (whose size is 7^3) is created which contains the frequency of trinucleotide with k gaps.
+#' For each k in the rng vector, a new vector (whose size is 7^3) is created which contains the frequency of tri-amino acid with k gaps.
 #'
 #' @param normalized is a logical parameter. When it is FALSE, the return value of the function does not change. Otherwise, the return value is normalized using the length of the sequence.
 #'

@@ -39,8 +39,8 @@ The function returns a feature matrix. The number of rows is equal to the number
 the number of columns is 16*(length of rng vector).
 }
 \description{
-This function calculates the composition of k-spaced nucleotide pairs. In other words, it
-computes the frequency of all nucleotide pairs with k spaces.
+This function calculates the composition of k-spaced ribonucleotide pairs. In other words, it
+computes the frequency of all ribonucleotide pairs with k spaces.
 }
 \note{
 'upto' is enabled only when rng is a number and not a vector.

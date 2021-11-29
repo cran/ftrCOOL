@@ -1,5 +1,63 @@
 # News
 
+## ftrCOOL 2.0.0
+
+### Added the following functions:
+
+#### Amino Acid Functions
+- AESNN3
+- ASDC
+- binary_3bit_T1
+- binary_3bit_T2
+- binary_3bit_T3
+- binary_3bit_T4
+- binary_3bit_T5
+- binary_3bit_T6
+- binary_3bit_T7
+- binary_5bit_T1
+- binary_5bit_T2
+- binary_6bit
+- DistancePair
+- OPF_7bit_T1
+- OPF_7bit_T2
+- OPF_7bit_T3
+- OPF_10bit
+
+#### DNA/RNA Functions
+
+- ASDC_DNA
+- ASDC_RNA
+- DPCP_DNA
+- DPCP_RNA
+- KNN_DNA
+- KNN_RNA
+- Mismatch_DNA
+- Mismatch_RNA
+- MMI_DNA
+- MMI_RNA
+- PS2_DNA
+- PS2_RNA
+- PS3_DNA
+- PS3_RNA
+- PS4_DNA
+- PS4_RNA
+- TPCP_DNA
+- TPCP_RNA
+- Zcurve9bit_DNA
+- Zcurve9bit_RNA
+- Zcurve12bit_DNA
+- Zcurve12bit_RNA
+- Zcurve36bit_DNA
+- Zcurve36bit_RNA
+- Zcurve48bit_DNA
+- Zcurve48bit_RNA
+- Zcurve144bit_DNA
+- Zcurve144bit_RNA
+- Zcurve9bit_DNA
+
+### Fixed a bug in 'upto' parameter of CkSNUCpair_DNA and CkSAApair 
+
+
 ## ftrCOOL 1.1.1
 ### Fixed a bug in the example of function DisorderB
 
@@ -13,7 +71,7 @@
 
 
 ### Renamed the following functions:
- - AutoCorDiNUC() to AutoCorDiNUC_DNA()
+ - AutoCorDiNUC to AutoCorDiNUC_DNA
  - AutoCorTriNUC to AutoCorTriNUC_DNA
  - CkSNUCpair to CkSNUCpair_DNA
  - CodonUsage to CodonUsage_DNA

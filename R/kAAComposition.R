@@ -56,7 +56,7 @@ kAAComposition<-function(seqs,rng=3,upto=FALSE,normalized=TRUE,label=c()){
   if(upto==TRUE && length(rng)==1){
     l<-length(rng)
     l<-rng[l]
-    rng<-0:l
+    rng<-1:l
   }
   rng <- sort(rng)
   rng <- unique(rng)

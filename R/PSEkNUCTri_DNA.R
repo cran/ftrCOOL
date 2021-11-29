@@ -13,7 +13,7 @@
 #' Users can choose the desired indices by their ids or their names in the TRI_DNA index file.
 #' The default value of this parameter is a vector with ("Dnase I", "Bendability (DNAse)") ids.
 #'
-#' @param lambda is a tuning parameter. This integer value shows the maximum limit of spaces between di-nucleotide pairs. The Number of spaces
+#' @param lambda is a tuning parameter. This integer value shows the maximum limit of spaces between Tri-nucleotide pairs. The Number of spaces
 #' changes from 1 to lambda.
 #'
 #' @param threshold is a number between (0 , 1]. In selectedIdx, indices with a correlation

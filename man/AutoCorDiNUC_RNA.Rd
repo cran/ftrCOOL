@@ -22,7 +22,7 @@ with '>'. Also, seqs could be a string vector. Each element of the vector is a R
 or indices in the DI_RNA file. This parameter could be a vector or a list of di-ribonucleic acid indices.
 The default value of this parameter is a vector with ("Rise (RNA)", "Roll (RNA)", "Shift (RNA)", "Slide (RNA)", "Tilt (RNA)","Twist (RNA)") ids.}
 
-\item{maxlag}{This parameter shows the maximum gap between two amino acids. The gaps change from 1 to maxlag (the maximum lag).}
+\item{maxlag}{This parameter shows the maximum gap between two di-ribonucleotide pairs. The gaps change from 1 to maxlag (the maximum lag).}
 
 \item{threshold}{is a number between (0 to 1]. In selectedIdx, indices with a correlation higher than the threshold will be deleted.The default value is 1.}
 
@@ -54,6 +54,6 @@ the binary combination will be calculated for all the physicochemical properties
 fileLNC<-system.file("extdata/Carica_papaya101RNA.txt",package="ftrCOOL")
 fileLNC<-fa.read(fileLNC,alphabet="rna")
 fileLNC<-fileLNC[1:20]
-mat1<-AutoCorDiNUC_RNA(seqs=fileLNC,maxlag=20,type=c("Moran","Geary"))
+mat1<-AutoCorDiNUC_RNA(seqs=fileLNC,maxlag=20,type=c("Moran"))
 
 }

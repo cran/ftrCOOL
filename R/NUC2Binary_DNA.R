@@ -47,12 +47,12 @@
 #'
 #' ad<-paste0(dir,"/NUC2Binary.txt")
 #' fileLNC<-system.file("extdata/Athaliana_LNCRNA.fa",package="ftrCOOL")
-#' NUC2Binary_DNA(seqs = fileLNC,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+#' NUC2Binary_DNA(seqs = fileLNC,binaryType="numBin",outFormat="txt",outputFileDist=ad)
 #'
 #' unlink("dir", recursive = TRUE)
 
 
-NUC2Binary_DNA <- function(seqs,binaryType="strBin",label=c(),outFormat="mat",outputFileDist="")
+NUC2Binary_DNA <- function(seqs,binaryType="numBin",label=c(),outFormat="mat",outputFileDist="")
 {
 
 

@@ -112,7 +112,7 @@ kGAAComposition<- function(seqs,rng=3,upto=FALSE,normalized=TRUE,Grp="locFus",la
   if(upto==TRUE && length(rng)==1){
     l<-length(rng)
     l<-rng[l]
-    rng<-0:l
+    rng<-1:l
   }
   rng <- sort(rng)
   rng <- unique(rng)
@@ -166,20 +166,8 @@ kGAAComposition<- function(seqs,rng=3,upto=FALSE,normalized=TRUE,Grp="locFus",la
 
       # a vector with name for each kmer
       tabNames<-names(tabKmers)
+      featureMatrix[n,tabNames]<-tabKmers
 
-      for(i in 1:length(tabKmers))
-      {
-        temp<-unlist(strsplit(tabNames[i],split = ""))
-        num=0
-        for(j in 1:l){
-          pow<-numGrp^(l-j)
-          #num<-num+((as.numeric(temp[j])-1)*pow)
-          as.numeric(temp[j])
-          num<-(((as.numeric(temp[j]))-1)*pow)+num
-        }
-        num<-num+1
-        featureMatrix[n,num]<-tabKmers[i]
-      }
 
     }
 

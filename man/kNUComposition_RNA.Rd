@@ -20,7 +20,7 @@ kNUComposition_RNA(
 with '>'. Also, seqs could be a string vector. Each element of the vector is a ribonucleotide sequence.}
 
 \item{rng}{This parameter can be a number or a vector. Each entry of the vector holds the value of k in the k-mer composition.
-For each k in the rng vector, a new vector (whose size is 20^k) is created which contains the frequency of kmers.}
+For each k in the rng vector, a new vector (whose size is 4^k) is created which contains the frequency of kmers.}
 
 \item{reverse}{It is a logical parameter which assumes the reverse complement of the sequence.}
 

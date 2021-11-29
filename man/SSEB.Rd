@@ -4,7 +4,7 @@
 \alias{SSEB}
 \title{Secondary Structure Elements Binary (SSEB)}
 \usage{
-SSEB(dirPath, binaryType = "strBin", outFormat = "mat", outputFileDist = "")
+SSEB(dirPath, binaryType = "numBin", outFormat = "mat", outputFileDist = "")
 }
 \arguments{
 \item{dirPath}{Path of the directory which contains all output files of PSIPRED. Each file belongs to a sequence.}
@@ -48,7 +48,7 @@ ad<-paste0(dir,"/SSEB.txt")
 
 Predss2dir<-system.file("testForder",package="ftrCOOL")
 Predss2dir<-paste0(Predss2dir,"/ss2Dir/")
-mat<-SSEB(Predss2dir,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+mat<-SSEB(Predss2dir,binaryType="numBin",outFormat="txt",outputFileDist=ad)
 
 unlink("dir", recursive = TRUE)
 }

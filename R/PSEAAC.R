@@ -12,7 +12,7 @@
 #' in the amino acid index file.
 #'
 #'
-#' @param lambda is a tuning parameter. Its value indicates the maximum number of spaces between di-nucleotide pairs. The number
+#' @param lambda is a tuning parameter. Its value indicates the maximum number of spaces between amino acid pairs. The number
 #' changes from 1 to lambda.
 #'
 #' @param w (weight) is a tuning parameter. It changes in from 0 to 1. The default value is 0.05.

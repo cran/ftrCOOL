@@ -46,11 +46,11 @@
 #'
 #' ptmSeqsADR<-system.file("extdata/",package="ftrCOOL")
 #' ptmSeqsVect<-as.vector(read.csv(paste0(ptmSeqsADR,"/ptmVect101AA.csv"))[,2])
-#' mat<-AA2Binary(seqs = ptmSeqsVect, binaryType="strBin",outFormat="mat")
+#' mat<-AA2Binary(seqs = ptmSeqsVect, binaryType="numBin",outFormat="mat")
 #'
 
 
-AA2Binary <- function(seqs,binaryType="strBin",label=c(),outFormat="mat",outputFileDist="")
+AA2Binary <- function(seqs,binaryType="numBin",label=c(),outFormat="mat",outputFileDist="")
 {
 
 
@@ -73,6 +73,7 @@ AA2Binary <- function(seqs,binaryType="strBin",label=c(),outFormat="mat",outputF
   else {
     stop("ERROR: Input sequence is not in the correct format. It should be a FASTA file or a string vector.")
   }
+
   lenSeqs<-sapply(seqs,nchar)
   numSeqs=length(seqs)
   dict<-list("A"=1,"C"=2,"D"=3,"E"=4,"F"=5,"G"=6,"H"=7,"I"=8,"K"=9,"L"=10,"M"=11,"N"=12,"P"=13,"Q"=14,"R"=15,"S"=16,"T"=17,"V"=18,"W"=19,"Y"=20)

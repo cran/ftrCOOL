@@ -23,7 +23,7 @@
 #' The default value of this parameter is a vector with ("Rise (RNA)", "Roll (RNA)", "Shift (RNA)", "Slide (RNA)", "Tilt (RNA)","Twist (RNA)") ids.
 #'
 #'
-#' @param maxlag This parameter shows the maximum gap between two amino acids. The gaps change from 1 to maxlag (the maximum lag).
+#' @param maxlag This parameter shows the maximum gap between two di-ribonucleotide pairs. The gaps change from 1 to maxlag (the maximum lag).
 #'
 #' @param type could be 'Moran', 'Greay', 'NormalizeMBorto', 'AC', 'CC', or 'ACC'. Also, it could be any combination of them.
 #'
@@ -43,7 +43,7 @@
 #' fileLNC<-system.file("extdata/Carica_papaya101RNA.txt",package="ftrCOOL")
 #' fileLNC<-fa.read(fileLNC,alphabet="rna")
 #' fileLNC<-fileLNC[1:20]
-#' mat1<-AutoCorDiNUC_RNA(seqs=fileLNC,maxlag=20,type=c("Moran","Geary"))
+#' mat1<-AutoCorDiNUC_RNA(seqs=fileLNC,maxlag=20,type=c("Moran"))
 #'
 
 AutoCorDiNUC_RNA<-function(seqs,selectedIdx=c("Rise (RNA)", "Roll (RNA)", "Shift (RNA)", "Slide (RNA)", "Tilt (RNA)","Twist (RNA)"),maxlag=3,threshold=1,type=c("Moran","Geary","NormalizeMBorto","AC","CC","ACC"),label=c()){
@@ -171,7 +171,7 @@ AutoCorDiNUC_RNA<-function(seqs,selectedIdx=c("Rise (RNA)", "Roll (RNA)", "Shift
 
 
 
-  ## average all amino acids in seq for each property
+  ## average all ribonucleotides in seq for each property
   ##is a vector with length property number
   Pprim <- matrix(0, ncol = numAAidx,nrow = numSeqs)
 

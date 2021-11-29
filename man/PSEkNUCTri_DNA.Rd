@@ -24,7 +24,7 @@ with '>'. Also, seqs could be a string vector. Each element of the vector is a n
 Users can choose the desired indices by their ids or their names in the TRI_DNA index file.
 The default value of this parameter is a vector with ("Dnase I", "Bendability (DNAse)") ids.}
 
-\item{lambda}{is a tuning parameter. This integer value shows the maximum limit of spaces between di-nucleotide pairs. The Number of spaces
+\item{lambda}{is a tuning parameter. This integer value shows the maximum limit of spaces between Tri-nucleotide pairs. The Number of spaces
 changes from 1 to lambda.}
 
 \item{w}{(weight) is a tuning parameter. It can take a value in the range 0 to 1. The default value is 0.05.}

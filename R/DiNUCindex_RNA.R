@@ -1,9 +1,9 @@
 #' Di riboNucleotide Index (DiNUCindex_RNA)
 #'
-#' This function replaces di ribonucleotides in a sequence with their physicochemical properties in the dinucleotide index file.
+#' This function replaces di-ribonucleotides in a sequence with their physicochemical properties in the di-ribonucleotide index file.
 #'
 #'
-#' @details There are 22 physicochemical indexes in the dinucleotide database.
+#' @details There are 22 physicochemical indexes in the di-ribonucleotide database.
 #'
 #' @note This function is provided for sequences with the same lengths.
 #' Users can use 'txt' option in outFormat for sequences with different lengths.
@@ -12,15 +12,15 @@
 #' It is noteworthy that 'txt' format is not usable for machine learning purposes if sequences have different sizes. Otherwise 'txt' format
 #' is also usable for machine learning purposes.
 #'
-#' @param seqs is a FASTA file containing nucleotide sequences. The sequences start
-#' with '>'. Also, seqs could be a string vector. Each element of the vector is a nucleotide sequence.
+#' @param seqs is a FASTA file containing ribonucleotide sequences. The sequences start
+#' with '>'. Also, seqs could be a string vector. Each element of the vector is a ribonucleotide sequence.
 #'
 #' @param selectedIdx DiNucIndex function works based on physicochemical properties. Users, select the properties by their ids
 #' or indexes in DI_RNA file.
 #' The default value of this parameter is a vector with ("Rise (RNA)", "Roll (RNA)", "Shift (RNA)", "Slide (RNA)", "Tilt (RNA)","Twist (RNA)") entries.
 #'
 #'
-#' @param threshold is a number between (0 , 1]. In selectedAAidx, indices with a correlation
+#' @param threshold is a number between (0 , 1]. In selectedIdx, indices with a correlation
 #' higher than the threshold will be deleted. The default value is 1.
 #'
 #'
@@ -32,7 +32,7 @@
 #' @param outputFileDist shows the path and name of the 'txt' output file.
 #'
 #' @return The output depends on the outFormat parameter which can be either 'mat' or 'txt'. If outFormat is 'mat', the function returns a feature
-#' matrix for sequences with the same length such that the number of columns is (sequence length-1)*(number of selected di-nucleotide indexes)
+#' matrix for sequences with the same length such that the number of columns is (sequence length-1)*(number of selected di-ribonucleotide indexes)
 #' and the number of rows is equal to the number of sequences.
 #' If the outFormat is 'txt', the output is written to a tab-delimited file.
 #'
@@ -46,7 +46,7 @@
 
 
 
-DiNUCindex_RNA <- function(seqs,selectedIdx=c("Rise (RNA)", "Roll (RNA)", "Shift (RNA)", "Slide (RNA)", "Tilt (RNA)","Twist (RNA)"),threshold=1,label=c(),outFormat="mat",outputFileDist="")
+DiNUCindex_RNA<- function(seqs,selectedIdx=c("Rise (RNA)", "Roll (RNA)", "Shift (RNA)", "Slide (RNA)", "Tilt (RNA)","Twist (RNA)"),threshold=1,label=c(),outFormat="mat",outputFileDist="")
 {
 
   path.pack=system.file("extdata",package="ftrCOOL")

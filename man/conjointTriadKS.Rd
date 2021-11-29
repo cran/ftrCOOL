@@ -12,7 +12,7 @@ with a '>' character. Also, seqs could be a string vector. Each element of the v
 
 \item{rng}{This parameter can be a number or a vector. Each element of the vector shows the number of spaces between the first and the second amino acids
 and the second and the third amino acids of the tripeptide.
-For each k in the rng vector, a new vector (whose size is 7^3) is created which contains the frequency of trinucleotide with k gaps.}
+For each k in the rng vector, a new vector (whose size is 7^3) is created which contains the frequency of tri-amino acid with k gaps.}
 
 \item{upto}{It is a logical parameter. The default value is FALSE. If rng is a number and upto is set to TRUE, rng is converted
 to a vector with values from 0 to rng.}

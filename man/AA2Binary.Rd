@@ -6,7 +6,7 @@
 \usage{
 AA2Binary(
   seqs,
-  binaryType = "strBin",
+  binaryType = "numBin",
   label = c(),
   outFormat = "mat",
   outputFileDist = ""
@@ -52,6 +52,6 @@ is also usable for machine learning purposes.
 
 ptmSeqsADR<-system.file("extdata/",package="ftrCOOL")
 ptmSeqsVect<-as.vector(read.csv(paste0(ptmSeqsADR,"/ptmVect101AA.csv"))[,2])
-mat<-AA2Binary(seqs = ptmSeqsVect, binaryType="strBin",outFormat="mat")
+mat<-AA2Binary(seqs = ptmSeqsVect, binaryType="numBin",outFormat="mat")
 
 }

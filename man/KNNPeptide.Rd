@@ -11,7 +11,7 @@ KNNPeptide(seqs, trainSeq, percent = 30, label = c(), labeltr = c())
 with a '>' character or it is a string vector such that each element is a peptide or protein sequence.}
 
 \item{trainSeq}{is a fasta file with amino acids sequences. Each sequence starts
-with a '>' character. Also it could be a string vector such that each element is a protein sequence. Eaxh sequence in the training set
+with a '>' character. Also it could be a string vector such that each element is a peptide sequence. Eaxh sequence in the training set
 is associated with a label. The label is found in the parameret labeltr.}
 
 \item{percent}{determines the threshold which is used to identify sequences (in the training set) which are similar to the input sequence.}

@@ -20,7 +20,7 @@
 #' The default value of this parameter is a vector with ("Rise", "Roll", "Shift", "Slide", "Tilt", "Twist") entries.
 #'
 #'
-#' @param threshold is a number between (0 , 1]. In selectedAAidx, indices with a correlation
+#' @param threshold is a number between (0 , 1]. In selectedIdx, indices with a correlation
 #' higher than the threshold will be deleted. The default value is 1.
 #'
 #'

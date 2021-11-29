@@ -21,7 +21,7 @@ with a '>' character. Also, seqs could be a string vector. Each element of the v
 For each k in the rng vector, a new vector (whose size is (number of categorizes)^2) is created which contains the frequency of pairs with k gaps.}
 
 \item{upto}{It is a logical parameter. The default value is FALSE. If rng is a number and upto is set to TRUE, rng is converted
-to a vector with values from [0 to rng].}
+to a vector with values from [1 to rng].}
 
 \item{normalized}{is a logical parameter. When it is FALSE, the return value of the function does not change. Otherwise, the return value is normalized using the length of the sequence.}
 

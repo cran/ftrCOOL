@@ -10,17 +10,16 @@
 #' @note The length of the sequences in positive and negative data sets and the input sets
 #' should be equal.
 #'
-#' @param seqs is a FASTA file containing ribonucleotide sequences. The sequences start
-#' with '>'. Also, seqs could be a string vector. Each element of the vector is a ribonucleotide sequence.
+#' @param seqs is a FASTA file containing nucleotide sequences. The sequences start
+#' with '>'. Also, seqs could be a string vector. Each element of the vector is a nucleotide sequence.
 #'
-#' @param pos is a fasta file containing amino acid sequences. Each sequence starts
+#' @param pos is a fasta file containing nucleotide sequences. Each sequence starts
 #' with '>'. Also, the value of this parameter can be a string vector.
-#' Each element of the vector is a peptide/protein sequence.
-#' The sequences are positive sequences in the training model
+#' The sequences are positive sequences in the training model.
 #'
-#' @param neg is a fasta file containing amino acid sequences. Each sequence starts
+#' @param neg is a fasta file containing nucleotide sequences. Each sequence starts
 #' with '>'. Also, the value of this parameter can be a string vector.
-#' Each element of the vector is a peptide/protein sequence.
+#' The sequences are negative sequences in the training model.
 #'
 #' @param label is an optional parameter. It is a vector whose length is equal to the number of sequences.
 #' It shows the class of each entry (i.e., sequence).

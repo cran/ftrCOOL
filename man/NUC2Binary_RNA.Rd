@@ -6,7 +6,7 @@
 \usage{
 NUC2Binary_RNA(
   seqs,
-  binaryType = "strBin",
+  binaryType = "numBin",
   label = c(),
   outFormat = "mat",
   outputFileDist = ""
@@ -54,7 +54,7 @@ fileLNC<-system.file("extdata/Carica_papaya101RNA.txt",package="ftrCOOL")
 mat<-NUC2Binary_RNA(seqs = fileLNC,outFormat="mat")
 
 ad<-paste0(dir,"/NUC2Binary.txt")
-NUC2Binary_RNA(seqs = fileLNC,binaryType="strBin",outFormat="txt",outputFileDist=ad)
+NUC2Binary_RNA(seqs = fileLNC,binaryType="numBin",outFormat="txt",outputFileDist=ad)
 
 unlink("dir", recursive = TRUE)
 }

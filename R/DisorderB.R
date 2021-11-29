@@ -4,7 +4,7 @@
 #' converts order amino acids to '10' and disorder amino acids to '01'.
 #'
 #' @param binaryType It can take any of the following values: ('strBin','logicBin','numBin').
-#' 'strBin' (String binary): each dinucleotide is represented by a string containing 2 characters(0-1). order = "10"   disorder="01".
+#' 'strBin' (String binary): each amino acid is represented by a string containing 2 characters(0-1). order = "10"   disorder="01".
 #' 'logicBin' (logical value): Each amino acid is represented by a vector containing 2 logical entries.  order = c(TRUE,FALSE)   disorder=c(FALSE,TRUE).
 #' 'numBin' (numeric bin): Each amino acid is represented by a numeric (i.e., integer) vector containing 2 numeric entries.   order = c(1,0)   disorder=c(0,1).
 #'
@@ -39,11 +39,11 @@
 #' PredDisdir<-paste0(PredDisdir,"/Disdir/")
 #' ad1<-paste0(dir,"/disorderB.txt")
 #'
-#' DisorderB(PredDisdir,binaryType="strBin",outFormat="txt",outputFileDist=ad1)
+#' DisorderB(PredDisdir,binaryType="numBin",outFormat="txt",outputFileDist=ad1)
 #'
 #' unlink("dir", recursive = TRUE)
 #'
-DisorderB<-function(dirPath,binaryType="strBin",outFormat="mat",outputFileDist=""){
+DisorderB<-function(dirPath,binaryType="numBin",outFormat="mat",outputFileDist=""){
 
 
   disorderVectorSimple<-readDisDir(dirPath)

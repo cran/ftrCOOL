@@ -23,7 +23,7 @@
 #' The default value of this parameter is a vector with  ("Dnase I", "Bendability (DNAse)") ids.
 #'
 #'
-#' @param maxlag This parameter shows the maximum gap between two amino acids. The gaps change from 1 to maxlag (the maximum lag).
+#' @param maxlag This parameter shows the maximum gap between two tri-nucleotide pairs. The gaps change from 1 to maxlag (the maximum lag).
 #'
 #' @param type could be 'Moran', 'Greay', 'NormalizeMBorto', 'AC', 'CC', or 'ACC'. Also, it could be any combination of them.
 #'
@@ -175,7 +175,7 @@ AutoCorTriNUC_DNA<-function(seqs,selectedNucIdx=c("Dnase I", "Bendability (DNAse
 
 
 
-  ## average all amino acids in seq for each property
+  ## average all tri-nucleotides in seq for each property
   ##is a vector with length property number
   Pprim <- matrix(0, ncol = numAAidx,nrow = numSeqs)
 
